@@ -50,6 +50,7 @@ nnoremap <Leader>q :q<CR>
 " Type <Space>w to save file
 nnoremap <Leader>w :w<CR>
 " Type <Space>o to open a new file
+set wildignore+=*/node_modules/*
 nnoremap <Leader>o :CtrlP<CR>
 " Copy & paste to system clipboard with <Space>p and <Space>y
 vmap <Leader>y "+y
