@@ -151,7 +151,7 @@ autocmd cursorhold * set nohlsearch
 autocmd cursormoved * set hlsearch
 
 " strip trailing whitespace
-autocmd FileType javascript,c,cpp,java,html,ruby,vim autocmd BufWritePre <buffer> StripWhitespace
+autocmd FileType javascript,html,php,css,vim autocmd BufWritePre <buffer> StripWhitespace
 " Convert Tabs to Spaces
 autocmd BufWritePre <buffer> retab
 
