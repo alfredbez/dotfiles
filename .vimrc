@@ -114,6 +114,11 @@ set noerrorbells                            " don't beep
 set autowrite                               "Save on buffer switch
 set mouse=a
 set showcmd
+set relativenumber
+set undofile
+set scrolloff=3
+set encoding=utf-8
+set colorcolumn=85
 
 " Open splits
 nmap vs :vsplit<cr>
