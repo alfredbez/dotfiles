@@ -84,6 +84,8 @@ noremap <leader>0 :tablast<cr>
 vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
     \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
 omap s :normal vs<CR>
+" search for visually selected text
+vnoremap // y/<C-R>"<CR>
 
 """"""""""""""""""""""""""
 " my config
