@@ -142,10 +142,10 @@ nmap <C-b> :NERDTreeToggle<cr>
 nmap :sp :rightbelow sp<cr>
 
 " move betwwen splits
-nnoremap <C-z> <C-W><C-J>
-nnoremap <C-u> <C-W><C-K>
-nnoremap <C-i> <C-W><C-L>
-nnoremap <C-o> <C-W><C-H>
+nnoremap <C-u> <C-W><C-J>
+nnoremap <C-i> <C-W><C-K>
+nnoremap <C-o> <C-W><C-L>
+nnoremap <C-z> <C-W><C-H>
 
 " Quickly go forward or backward to buffer
 nmap :bp :BufSurfBack<cr>
