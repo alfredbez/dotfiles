@@ -21,16 +21,6 @@ set t_Co=256
 """"""""""""""""""""""""
 set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Mono.otf\ 11
 
-""""""""""""""""""""""""""""""""""""""""""""""""
-" Moving lines and selections with Ctrl-J and K
-""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <c-k> :m-2<cr>==
-nnoremap <c-j> :m+<cr>==
-inoremap <c-j> <esc>:m+<cr>==gi
-inoremap <c-k> <esc>:m-2<cr>==gi
-vnoremap <c-j> :m'>+<cr>gv=gv
-vnoremap <c-k> :m-2<cr>gv=gv
-
 """"""""""""""""""""""""""""
 " aktuelle Zeile hervorheben
 """"""""""""""""""""""""""""
@@ -46,7 +36,7 @@ highlight CursorLine guibg=#303000 ctermbg=234
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")
-	set undodir=~/.vim/undo
+    set undodir=~/.vim/undo
 endif
 
 
@@ -92,6 +82,16 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
+
+""""""""""""""""""""""""""""""""
+" Moving lines and selections with Ctrl-J and K
+"""""""""""""""""""""""""""""""""
+nnoremap <leader>k :m-2<cr>==
+nnoremap <leader>j :m+<cr>==
+inoremap <leader>j <esc>:m+<cr>==gi
+inoremap <leader>k <esc>:m-2<cr>==gi
+vnoremap <leader>j :m'>+<cr>gv=gv
+vnoremap <leader>k :m-2<cr>gv=gv
 
 " auto-close { and place cursor
 inoremap {<CR> {<CR>}<C-o>O
@@ -157,10 +157,10 @@ nmap <C-b> :NERDTreeToggle<cr>
 nmap :sp :rightbelow sp<cr>
 
 " move betwwen splits
-nnoremap <C-u> <C-W><C-J>
-nnoremap <C-i> <C-W><C-K>
-nnoremap <C-o> <C-W><C-L>
-nnoremap <C-z> <C-W><C-H>
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
 
 " Quickly go forward or backward to buffer
 nmap :bp :BufSurfBack<cr>
