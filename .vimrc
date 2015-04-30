@@ -40,6 +40,21 @@ autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 highlight CursorLine guibg=#303000 ctermbg=234
 
+""""""""""""""""""""""""""""""""""""""""""""""""
+" Centralize backups, swapfiles and undo history
+""""""""""""""""""""""""""""""""""""""""""""""""
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+if exists("&undodir")
+	set undodir=~/.vim/undo
+endif
+
+
+"""""""""""""""""""""""""""""
+" Show “invisible” characters
+"""""""""""""""""""""""""""""
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+
 
 """"""""""""""""""""""""""
 " Keybindings
