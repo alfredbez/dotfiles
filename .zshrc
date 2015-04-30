@@ -82,6 +82,6 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source $HOME/.zsh-extensions/gulp-autocompletion-zsh/gulp-autocompletion.zsh
+source ~/.oh-my-zsh/custom/plugins/gulp-autocompletion-zsh/gulp-autocompletion.zsh
 source ~/.nvm/nvm.sh
 nvm use 0.10 > /dev/null 2>&1
