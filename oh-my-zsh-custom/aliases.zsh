@@ -6,6 +6,7 @@ alias ca='clocker archive'
 alias cl='clocker list'
 alias ack='ack-grep'
 alias copy='xclip -sel clip <'
+alias vim='mvim'
 
 # Shortcuts
 alias dl="cd ~/Downloads"
