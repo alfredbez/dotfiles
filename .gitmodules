@@ -55,3 +55,9 @@
 [submodule ".vim/bundle/vim-webdevicons"]
 	path = .vim/bundle/vim-webdevicons
 	url = https://github.com/ryanoasis/vim-webdevicons.git
+[submodule "oh-my-zsh-custom/plugins/gulp-autocompletion-zsh"]
+	path = oh-my-zsh-custom/plugins/gulp-autocompletion-zsh
+	url = https://github.com/akoenig/gulp-autocompletion-zsh.git
+[submodule "oh-my-zsh-custom/plugins/zsh-syntax-highlighting"]
+	path = oh-my-zsh-custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

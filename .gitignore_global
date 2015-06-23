@@ -42,3 +42,9 @@ Thumbs.db
 *.swp
 *.bak
 .idea
+
+# misc #
+########
+
+.tern-port
+node_modules

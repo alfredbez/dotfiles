@@ -82,6 +82,14 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+if [ ! -d ~/.oh-my-zsh/custom ]; then
+    echo "Custom Directory not found in oh-my-zsh!"
+    if [ -d ~/dotfiles/oh-my-zsh-custom ]; then
+        ln -s ~/dotfiles/oh-my-zsh-custom ~/.oh-my-zsh/custom
+        echo "Symlink from dotfiles repository created"
+    fi
+fi
+
 source ~/.oh-my-zsh/custom/plugins/gulp-autocompletion-zsh/gulp-autocompletion.zsh
 source ~/.nvm/nvm.sh
 nvm use 0.10 > /dev/null 2>&1
