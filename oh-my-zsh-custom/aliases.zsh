@@ -6,6 +6,13 @@ alias ca='clocker archive'
 alias cl='clocker list'
 alias ack='ack-grep'
 alias copy='xclip -sel clip <'
+alias up='sudo apt-get update'
+alias inst='sudo apt-get install'
+alias selenium='java -jar ~/.selenium-server-standalone-2.45.0.jar'
+
+if [ $(uname -s) = "Linux" ]; then
+    alias open="gnome-open"
+fi
 
 # Shortcuts
 alias dl="cd ~/Downloads"
