@@ -85,3 +85,6 @@ fi
 source ~/.oh-my-zsh/custom/plugins/gulp-autocompletion-zsh/gulp-autocompletion.zsh
 source ~/.nvm/nvm.sh
 nvm use 0.10 > /dev/null 2>&1
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
