@@ -61,10 +61,13 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='subl'
+if [ $(uname -s) = "Linux" ]; then
+    export EDITOR='vim'
 else
-  export EDITOR='subl'
+    export EDITOR='mvim'
+fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
 fi
 
 # Compilation flags
