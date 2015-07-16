@@ -82,6 +82,10 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+if ! [ -L ~/.oh-my-zsh/custom ]; then
+    rm -rf ~/.oh-my-zsh/custom
+fi
+
 if [ ! -d ~/.oh-my-zsh/custom ]; then
     echo "Custom Directory not found in oh-my-zsh!"
     if [ -d ~/dotfiles/oh-my-zsh-custom ]; then
