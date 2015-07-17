@@ -1,4 +1,5 @@
 alias rs='rsync -chavzP --stats'
+alias spider='wget --spider -r -nd -nv -H -w 2'
 alias t='trash'
 alias cs='clocker start -t'
 alias ce='clocker stop'
