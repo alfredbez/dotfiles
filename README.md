@@ -26,8 +26,8 @@ git config --global core.excludesfile ~/.gitignore_global
 ##other
 
 ````
-ln -s ~/dotfiles/.ackrc .ackrc
-ln -s ~/dotfiles/.curlrc .curlrc
-ln -s ~/dotfiles/.editorconfig .editorconfig
-ln -s ~/dotfiles/.wgetrc .wgetrc
+ln -s ~/dotfiles/.ackrc ~/.ackrc
+ln -s ~/dotfiles/.curlrc ~/.curlrc
+ln -s ~/dotfiles/.editorconfig ~/.editorconfig
+ln -s ~/dotfiles/.wgetrc ~/.wgetrc
 ````
