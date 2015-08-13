@@ -1,0 +1,10 @@
+[
+  { "keys": ["ctrl+space"], "command": "expand_selection_to_quotes" },
+  { "keys": ["ctrl+super+a"], "command": "alignment" },
+  { "keys": ["super+shift+t"], "command": "title_case" },
+  { "keys": ["super+shift+a"], "command": "expand_selection", "args": {"to": "tag"} },
+  { "keys": ["super+ctrl+shift+d"], "command": "goto_definition" },
+  { "keys": ["super+shift+alt+n"], "command": "advanced_new_file_new" },
+  { "keys": ["ctrl+i"], "command": "indent_and_braces", "args": { "from_cursor": true} },
+  { "keys": ["ctrl+j"], "command": "indent_and_braces", "args": { "from_cursor": false} }
+]

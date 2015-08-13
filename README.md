@@ -30,4 +30,7 @@ ln -s ~/dotfiles/.ackrc ~/.ackrc
 ln -s ~/dotfiles/.curlrc ~/.curlrc
 ln -s ~/dotfiles/.editorconfig ~/.editorconfig
 ln -s ~/dotfiles/.wgetrc ~/.wgetrc
+# on OS X
+ln -s ~/dotfiles/sublime-text/Preferences.sublime-settings ~/Library/Application Support/Sublime Text 3/Packages/User/
+ln -s ~/dotfiles/sublime-text/Default (OSX).sublime-keymap ~/Library/Application Support/Sublime Text 3/Packages/User/
 ````
