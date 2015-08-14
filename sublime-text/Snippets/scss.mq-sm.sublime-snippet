@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+@media #{\$small-${1:up}} {
+    ${2:// rules}
+}
+]]></content>
+	<tabTrigger>sm</tabTrigger>
+	<scope>source.scss</scope>
+</snippet>

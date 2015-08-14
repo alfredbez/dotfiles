@@ -1,0 +1,7 @@
+<snippet>
+	<content><![CDATA[
+<f:cObject typoscriptObjectPath="${1:lib.fluidText}" />
+]]></content>
+	<tabTrigger>tsop</tabTrigger>
+	<scope>text.html</scope>
+</snippet>

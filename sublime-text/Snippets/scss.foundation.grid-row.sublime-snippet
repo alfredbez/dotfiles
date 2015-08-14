@@ -1,0 +1,7 @@
+<snippet>
+	<content><![CDATA[
+@include grid-row(${1:\$behavior: nest});
+]]></content>
+	<tabTrigger>gr</tabTrigger>
+	<scope>source.scss</scope>
+</snippet>

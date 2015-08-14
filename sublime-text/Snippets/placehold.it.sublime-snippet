@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+http://placehold.it/${1:300x100}&text=${2:myText}
+]]></content>
+  <tabTrigger>pit</tabTrigger>
+</snippet>

@@ -1,0 +1,7 @@
+<snippet>
+  <content><![CDATA[
+console.log('%c ${1:msg} ', 'background: ${2:#222}; color: ${3:#bada55}');
+]]></content>
+  <tabTrigger>clc</tabTrigger>
+  <scope>source.js</scope>
+</snippet>

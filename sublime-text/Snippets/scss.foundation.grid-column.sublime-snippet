@@ -1,0 +1,7 @@
+<snippet>
+	<content><![CDATA[
+@include grid-column(\$columns:${1:4},${2:\$collapse:true,}${3:\$last-column:false,}${4:\$center:false,}${5:\$offset:3,}${6:\$push:3,}${7:\$float:right});
+]]></content>
+	<tabTrigger>gc</tabTrigger>
+	<scope>source.scss</scope>
+</snippet>

@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+\$_SERVER['REMOTE_ADDR']
+]]></content>
+  <tabTrigger>ip</tabTrigger>
+</snippet>

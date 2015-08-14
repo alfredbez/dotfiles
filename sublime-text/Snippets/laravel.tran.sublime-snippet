@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+trans('${1:custom}.${2:key}')
+]]></content>
+  <tabTrigger>lt</tabTrigger>
+</snippet>

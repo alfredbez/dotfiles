@@ -1,0 +1,7 @@
+<snippet>
+  <content><![CDATA[
+View::make(${1:'view'}${2:, array('${3:var}' => ${4:\$var})});
+]]></content>
+  <tabTrigger>vm</tabTrigger>
+  <scope>source.php</scope>
+</snippet>

@@ -1,0 +1,15 @@
+<snippet>
+  <content><![CDATA[
+@media #{\$small-up} {
+  @include grid-column(\$columns:${1:12});
+}
+@media #{\$medium-up} {
+  @include grid-column(\$columns:${2:12});
+}
+@media #{\$large-up} {
+  @include grid-column(\$columns:${3:12});
+}
+]]></content>
+  <tabTrigger>zf-mq</tabTrigger>
+  <scope>source.scss</scope>
+</snippet>

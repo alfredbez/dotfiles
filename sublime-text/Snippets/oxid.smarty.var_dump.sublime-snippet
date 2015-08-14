@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+[{\$${1:var}|@var_dump}]
+]]></content>
+  <tabTrigger>odump</tabTrigger>
+</snippet>
