@@ -97,7 +97,7 @@ if [ ! -d ~/.oh-my-zsh/custom ]; then
     fi
 fi
 
-source ~/.oh-my-zsh/custom/plugins/gulp-autocompletion-zsh/gulp.plugin.zsh
+source ~/.oh-my-zsh/custom/plugins/gulp.plugin.zsh/gulp.plugin.zsh
 source ~/.nvm/nvm.sh
 nvm use 0.10 > /dev/null 2>&1
 
