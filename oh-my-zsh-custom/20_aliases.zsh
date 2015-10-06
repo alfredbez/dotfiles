@@ -19,6 +19,10 @@ else
     alias vim='mvim'
 fi
 
+if is_ubuntu; then
+    alias open="nautilus"
+fi
+
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
