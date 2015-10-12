@@ -45,7 +45,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bower cp catimg common-aliases npm sublime sudo vagrant z zsh-syntax-highlighting calc)
+plugins=(git bower cp catimg common-aliases npm sublime sudo vagrant z zsh-syntax-highlighting calc debian)
 
 # User configuration
 
