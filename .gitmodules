@@ -67,3 +67,6 @@
 [submodule "oh-my-zsh-custom/plugins/gulp.plugin.zsh"]
 	path = oh-my-zsh-custom/plugins/gulp.plugin.zsh
 	url = https://github.com/akoenig/gulp.plugin.zsh.git
+[submodule "oh-my-zsh-custom/plugins/calc"]
+	path = oh-my-zsh-custom/plugins/calc
+	url = https://github.com/arzzen/calc.plugin.zsh.git
