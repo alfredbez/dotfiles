@@ -60,6 +60,7 @@ if [ "$(uname)" == "Darwin" ]; then
   # OS X
   symlink "$HOME/.dotfiles/sublime-text/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
   symlink "$HOME/.dotfiles/sublime-text/Default (OSX).sublime-keymap" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap"
+  symlink "$HOME/.dotfiles/sublime-text/Default (OSX).sublime-mousemap" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-mousemap"
   symlink "$HOME/.dotfiles/sublime-text/phpcs.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/phpcs.sublime-settings"
   symlink "$HOME/.dotfiles/sublime-text/Snippets" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Snippets"
   e_success "configured sublime text (OSX)"
@@ -67,6 +68,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 	# Linux
   symlink "$HOME/.dotfiles/sublime-text/Preferences.sublime-settings" "$HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
   symlink "$HOME/.dotfiles/sublime-text/Default (Linux).sublime-keymap" "$HOME/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap"
+  symlink "$HOME/.dotfiles/sublime-text/Default (Linux).sublime-mousemap" "$HOME/.config/sublime-text-3/Packages/User/Default (Linux).sublime-mousemap"
   symlink "$HOME/.dotfiles/sublime-text/phpcs.sublime-settings" "$HOME/.config/sublime-text-3/Packages/User/phpcs.sublime-settings"
   symlink "$HOME/.dotfiles/sublime-text/Snippets" "$HOME/.config/sublime-text-3/Packages/User/Snippets"
   e_success "configured sublime text (Linux)"
