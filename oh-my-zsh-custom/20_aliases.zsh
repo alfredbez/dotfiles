@@ -12,6 +12,7 @@ alias inst='sudo apt-get install'
 alias selenium='java -jar ~/.selenium-server-standalone-2.45.0.jar'
 alias createCommitMsgHook='. ~/dotfiles/scripts/createCommitMsgHook.sh'
 alias serve='python -m SimpleHTTPServer'
+alias sd='svn diff -x -w'
 
 if [ $(uname -s) = "Linux" ]; then
     alias open="gnome-open"
