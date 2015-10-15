@@ -42,3 +42,7 @@ alias spoton="sudo mdutil -a -i on"
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+if [ -f ~/bin/aliases.zsh ]; then
+    source ~/bin/aliases.zsh
+fi

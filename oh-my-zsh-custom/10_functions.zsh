@@ -40,3 +40,7 @@ function sd () {
     echo "$1";
     svn diff --diff-cmd colordiff -x "-u -w -p" "$1" | less -NR;
 }
+
+if [ -f ~/bin/functions.zsh ]; then
+    source ~/bin/functions.zsh
+fi
