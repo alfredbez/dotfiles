@@ -56,22 +56,26 @@ e_arrow "reminder: set your git name and email like this: \
 \n\t git config --global user.name \"Foo Bar\""
 
 # sublime-text
+SUBLIME_TEXT_USER_PATH=""
+SUBLIME_TEXT_DOTFILES_PATH="$HOME/.dotfiles/sublime-text"
 if [ "$(uname)" == "Darwin" ]; then
   # OS X
-  symlink "$HOME/.dotfiles/sublime-text/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
-  symlink "$HOME/.dotfiles/sublime-text/Default (OSX).sublime-keymap" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap"
-  symlink "$HOME/.dotfiles/sublime-text/Default (OSX).sublime-mousemap" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-mousemap"
-  symlink "$HOME/.dotfiles/sublime-text/phpcs.sublime-settings" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/phpcs.sublime-settings"
-  symlink "$HOME/.dotfiles/sublime-text/Snippets" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Snippets"
+  SUBLIME_TEXT_USER_PATH="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+  symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default (OSX).sublime-keymap" "$SUBLIME_TEXT_USER_PATH/Default (OSX).sublime-keymap"
+  symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default (OSX).sublime-mousemap" "$SUBLIME_TEXT_USER_PATH/Default (OSX).sublime-mousemap"
   e_success "configured sublime text (OSX)"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 	# Linux
-  symlink "$HOME/.dotfiles/sublime-text/Preferences.sublime-settings" "$HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
-  symlink "$HOME/.dotfiles/sublime-text/Default (Linux).sublime-keymap" "$HOME/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap"
-  symlink "$HOME/.dotfiles/sublime-text/Default (Linux).sublime-mousemap" "$HOME/.config/sublime-text-3/Packages/User/Default (Linux).sublime-mousemap"
-  symlink "$HOME/.dotfiles/sublime-text/phpcs.sublime-settings" "$HOME/.config/sublime-text-3/Packages/User/phpcs.sublime-settings"
-  symlink "$HOME/.dotfiles/sublime-text/Snippets" "$HOME/.config/sublime-text-3/Packages/User/Snippets"
+  SUBLIME_TEXT_USER_PATH="$HOME/.config/sublime-text-3/Packages/User"
+  symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default (Linux).sublime-keymap" "$SUBLIME_TEXT_USER_PATH/Default (Linux).sublime-keymap"
+  symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default (Linux).sublime-mousemap" "$SUBLIME_TEXT_USER_PATH/Default (Linux).sublime-mousemap"
   e_success "configured sublime text (Linux)"
+fi
+
+if [ ! "$SUBLIME_TEXT_USER_PATH" == "" ]; then
+	symlink "$SUBLIME_TEXT_DOTFILES_PATH/Preferences.sublime-settings" "$SUBLIME_TEXT_USER_PATH/Preferences.sublime-settings"
+	symlink "$SUBLIME_TEXT_DOTFILES_PATH/phpcs.sublime-settings" "$SUBLIME_TEXT_USER_PATH/phpcs.sublime-settings"
+	symlink "$SUBLIME_TEXT_DOTFILES_PATH/Snippets" "$SUBLIME_TEXT_USER_PATH/Snippets"
 fi
 
 # random
