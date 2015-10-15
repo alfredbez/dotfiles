@@ -1,0 +1,17 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"ApplySyntax",
+		"Emmet",
+		"Package Control",
+		"PerlTidy",
+		"Seti_UI",
+		"SideBarEnhancements",
+		"TrailingSpaces"
+	]
+}
