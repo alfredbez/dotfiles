@@ -8,8 +8,11 @@
 		"Alignment",
 		"ApplySyntax",
 		"Emmet",
+		"jQuery",
+		"ModernPerl",
 		"Package Control",
 		"PerlTidy",
+		"PlainTasks",
 		"Seti_UI",
 		"SideBarEnhancements",
 		"TrailingSpaces"
