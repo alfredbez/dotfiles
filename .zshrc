@@ -4,7 +4,7 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
 ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh-custom
-plugins=(git cp common-aliases sublime sudo z calc debian zsh-syntax-highlighting)
+plugins=(git cp common-aliases sublime sudo z calc debian svn zsh-syntax-highlighting)
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH=~/bin:$PATH
