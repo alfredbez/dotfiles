@@ -130,10 +130,15 @@ prompt_svn() {
   if in_svn; then
     if (svn status | grep -Eq '^\s*[ACDIM!?L]'); then
       prompt_segment red white
+      additional_svn_info='ⓘ'
+    elif (svn status -uq | wc -l | grep -vq 0); then
+      prompt_segment yellow black
+      additional_svn_info='↻'
     else
       prompt_segment green black
+      additional_svn_info='✓'
     fi
-    echo -n " $(svn_get_rev_nr)"
+    echo -n " $(svn_get_rev_nr) $additional_svn_info"
   fi
 }
 
