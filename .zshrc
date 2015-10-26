@@ -20,3 +20,7 @@ if [ -d ~/.nvm ]; then
 	source ~/.nvm/nvm.sh
 	nvm use 0.10 > /dev/null 2>&1
 fi
+
+if [ -f ~/.zshrc.local ]; then
+	source ~/.zshrc.local
+fi
