@@ -14,10 +14,14 @@
 		"Missing Palette Commands",
 		"ModernPerl",
 		"Package Control",
+		"PerlSubs",
 		"PerlTidy",
 		"PlainTasks",
 		"Seti_UI",
 		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-contrib-perl",
+		"SublimeLinter-contrib-perlcritic",
 		"TrailingSpaces",
 		"VCS Gutter"
 	]
