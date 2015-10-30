@@ -1,0 +1,14 @@
+<snippet>
+  <content><![CDATA[
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature 'say';
+
+my \$${1:foo}${2:= 'bar'};
+]]></content>
+  <tabTrigger>#!</tabTrigger>
+  <scope>source.perl</scope>
+</snippet>
