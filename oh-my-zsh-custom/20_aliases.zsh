@@ -23,9 +23,6 @@ fi
 
 # Shortcuts
 alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias kd="cd ~/Kunden"
-alias dev="cd ~/dev"
 
 # OS X has no `md5sum`, so use `md5` as a fallback
 command -v md5sum > /dev/null || alias md5sum="md5"
