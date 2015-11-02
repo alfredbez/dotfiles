@@ -34,10 +34,8 @@ if [ ! -d $HOME/.oh-my-zsh ]; then
 fi
 
 if [ -d $HOME/.oh-my-zsh ]; then
-	symlink "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
-	rm -rf "$HOME/.oh-my-zsh/custom"
-	symlink "$HOME/.dotfiles/oh-my-zsh-custom" "$HOME/.oh-my-zsh/custom"
-	e_success "created zsh symlinks"
+    symlink "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
+    e_success "created zsh symlinks"
 else
 	e_error "something gone wrong, you need to install oh-my-zsh on manually"
 fi
