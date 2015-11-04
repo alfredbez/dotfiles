@@ -8,36 +8,36 @@ function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
 function e_arrow()    { echo -e " \033[1;34m➜\033[0m  $@"; }
 
 function symlink() {
-	if [ -h "$2" ]; then
-		local target="$(readlink -f ${2})"
-		if [ "$1" == "$target" ]; then
-			# don't create symlink if it exists and the target is the same
-			return 0
-		fi
-	fi
-	if [ -f "$2" ]; then
+    if [ -h "$2" ]; then
+        local target="$(readlink -f ${2})"
+        if [ "$1" == "$target" ]; then
+            # don't create symlink if it exists and the target is the same
+            return 0
+        fi
+    fi
+    if [ -f "$2" ]; then
     e_error "File already exists!"
     local newname="$2.$(date +%s)"
     mv "$2" "$newname" && e_success "renamed to $newname"
-	fi
-	ln -s "$1" "$2"
+    fi
+    ln -s "$1" "$2"
 }
 
 # zsh
 if [ ! -d $HOME/.oh-my-zsh ]; then
-	e_error "oh-my-zsh not found!"
-	e_header "install it automatically..."
-	git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
-	if [ -d $HOME/.oh-my-zsh ]; then
-		e_success "installed oh-my-zsh"
-	fi
+    e_error "oh-my-zsh not found!"
+    e_header "install it automatically..."
+    git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
+    if [ -d $HOME/.oh-my-zsh ]; then
+        e_success "installed oh-my-zsh"
+    fi
 fi
 
 if [ -d $HOME/.oh-my-zsh ]; then
     symlink "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
     e_success "created zsh symlinks"
 else
-	e_error "something gone wrong, you need to install oh-my-zsh on manually"
+    e_error "something gone wrong, you need to install oh-my-zsh on manually"
 fi
 
 # VIM stuff
@@ -63,7 +63,7 @@ if [ "$(uname)" == "Darwin" ]; then
   symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(OSX).sublime-mousemap" "$SUBLIME_TEXT_USER_PATH/Default (OSX).sublime-mousemap"
   e_success "configured sublime text (OSX)"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-	# Linux
+    # Linux
   SUBLIME_TEXT_USER_PATH="$HOME/.config/sublime-text-3/Packages/User"
   symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(Linux).sublime-keymap" "$SUBLIME_TEXT_USER_PATH/Default (Linux).sublime-keymap"
   symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(Linux).sublime-mousemap" "$SUBLIME_TEXT_USER_PATH/Default (Linux).sublime-mousemap"
@@ -71,10 +71,10 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 fi
 
 if [ ! "$SUBLIME_TEXT_USER_PATH" == "" ]; then
-	symlink "$SUBLIME_TEXT_DOTFILES_PATH/Preferences.sublime-settings" "$SUBLIME_TEXT_USER_PATH/Preferences.sublime-settings"
-	symlink "$SUBLIME_TEXT_DOTFILES_PATH/phpcs.sublime-settings" "$SUBLIME_TEXT_USER_PATH/phpcs.sublime-settings"
-	symlink "$SUBLIME_TEXT_DOTFILES_PATH/Snippets" "$SUBLIME_TEXT_USER_PATH/Snippets"
-	symlink "$SUBLIME_TEXT_DOTFILES_PATH/Package_Control.sublime-settings" "$SUBLIME_TEXT_USER_PATH/Package Control.sublime-settings"
+    symlink "$SUBLIME_TEXT_DOTFILES_PATH/Preferences.sublime-settings" "$SUBLIME_TEXT_USER_PATH/Preferences.sublime-settings"
+    symlink "$SUBLIME_TEXT_DOTFILES_PATH/phpcs.sublime-settings" "$SUBLIME_TEXT_USER_PATH/phpcs.sublime-settings"
+    symlink "$SUBLIME_TEXT_DOTFILES_PATH/Snippets" "$SUBLIME_TEXT_USER_PATH/Snippets"
+    symlink "$SUBLIME_TEXT_DOTFILES_PATH/Package_Control.sublime-settings" "$SUBLIME_TEXT_USER_PATH/Package Control.sublime-settings"
 fi
 
 # random
