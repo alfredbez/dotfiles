@@ -17,10 +17,10 @@ export LANG=en_US.UTF-8
 export EDITOR='vim'
 
 if [ -d ~/.nvm ]; then
-	source ~/.nvm/nvm.sh
-	nvm use 0.10 > /dev/null 2>&1
+    source ~/.nvm/nvm.sh
+    nvm use stable > /dev/null 2>&1
 fi
 
 if [ -f ~/.zshrc.local ]; then
-	source ~/.zshrc.local
+    source ~/.zshrc.local
 fi
