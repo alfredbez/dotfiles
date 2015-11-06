@@ -7,6 +7,7 @@
 	[
 		"Alignment",
 		"ApplySyntax",
+		"CodeFormatter",
 		"Dotfiles Syntax Highlighting",
 		"EditorConfig",
 		"Emmet",
@@ -23,6 +24,7 @@
 		"SublimeLinter",
 		"SublimeLinter-contrib-perl",
 		"SublimeLinter-contrib-perlcritic",
+		"SublimeLinter-jshint",
 		"TrailingSpaces",
 		"VCS Gutter"
 	]
