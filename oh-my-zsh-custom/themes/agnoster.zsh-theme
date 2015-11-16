@@ -128,10 +128,10 @@ prompt_git() {
 
 prompt_svn() {
   if in_svn; then
-    if (svn status -uq | wc -l | grep -vq 0); then
+    if (svn status -uq 2>/dev/null | wc -l | grep -vq 0); then
       additional_svn_info=' ↻'
     fi
-    if (svn status | grep -Eq '^\s*[ACDIM!?L]'); then
+    if (svn status 2>/dev/null | grep -Eq '^\s*[ACDIM!?L]'); then
       prompt_segment yellow black
       additional_svn_info="ⓘ$additional_svn_info"
     else
