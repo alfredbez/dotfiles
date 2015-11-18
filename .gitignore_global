@@ -49,3 +49,4 @@ Thumbs.db
 .tern-port
 node_modules
 sftp-config.json
+Vagrantfile.local
