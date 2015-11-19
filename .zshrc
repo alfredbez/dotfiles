@@ -4,11 +4,10 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
 ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh-custom
-plugins=(git cp common-aliases sublime sudo z calc debian svn zsh-syntax-highlighting)
+plugins=(git composer cp common-aliases sublime sudo z calc debian svn zsh-syntax-highlighting)
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH=~/bin:$PATH
-export PATH=~/.composer/vendor/bin:$PATH
 export PATH="/usr/local/heroku/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
