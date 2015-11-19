@@ -6,8 +6,10 @@
 	"installed_packages":
 	[
 		"Alignment",
+		"All Autocomplete",
 		"ApplySyntax",
 		"CodeFormatter",
+		"DocBlockr",
 		"Dotfiles Syntax Highlighting",
 		"EditorConfig",
 		"Emmet",
@@ -19,6 +21,7 @@
 		"Package Control",
 		"PerlSubs",
 		"PerlTidy",
+		"Phpcs",
 		"PlainTasks",
 		"Seti_UI",
 		"SideBarEnhancements",
