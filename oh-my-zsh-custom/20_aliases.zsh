@@ -11,6 +11,7 @@ alias selenium='java -jar ~/.selenium-server-standalone-2.45.0.jar'
 alias createCommitMsgHook='. ~/dotfiles/scripts/createCommitMsgHook.sh'
 alias serve='python -m SimpleHTTPServer'
 alias pt='perltidy'
+alias search='grep -nrw . -e'
 
 if [ $(uname -s) = "Linux" ]; then
     alias open="gnome-open"
