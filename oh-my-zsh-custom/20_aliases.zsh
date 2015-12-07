@@ -12,6 +12,7 @@ alias createCommitMsgHook='. ~/dotfiles/scripts/createCommitMsgHook.sh'
 alias serve='python -m SimpleHTTPServer'
 alias pt='perltidy'
 alias search='grep -nrw . -e'
+alias less='less -N'
 
 if [ $(uname -s) = "Linux" ]; then
     alias open="gnome-open"
