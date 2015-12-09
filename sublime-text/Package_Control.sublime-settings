@@ -27,12 +27,15 @@
 		"PlainTasks",
 		"Seti_UI",
 		"SideBarEnhancements",
+		"Smarty",
+		"SublimeCodeIntel",
 		"SublimeLinter",
 		"SublimeLinter-contrib-perl",
 		"SublimeLinter-contrib-perlcritic",
 		"SublimeLinter-jshint",
 		"SublimeLinter-php",
 		"TrailingSpaces",
-		"VCS Gutter"
+		"VCS Gutter",
+		"Xdebug Client"
 	]
 }
