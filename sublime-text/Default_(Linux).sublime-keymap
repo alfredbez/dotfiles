@@ -1,4 +1,5 @@
 [
     { "keys": ["ctrl+space"], "command": "expand_selection_to_quotes" },
-	{ "keys": ["ctrl+u"], "command": "soft_undo" }
+    { "keys": ["ctrl+u"], "command": "soft_undo" },
+    { "keys": ["alt+d"], "command": "goto_definition" }
 ]
