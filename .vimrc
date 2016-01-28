@@ -56,21 +56,11 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
 " Type <Space>o to open a new file
 set wildignore+=*/node_modules/*
+set wildignore+=*/vendor/*
+set wildignore+=*/bower_components/*
 nnoremap <Leader>o :CtrlP<CR>
-" Copy & paste to system clipboard with <Space>p and <Space>y
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
 " Enter visual mode with <space><space>
 nmap <Leader><Leader> V
-" expand selection to character, word, block
-" v: Selection erweitern
-" CTRL + v: Selection verringern
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 " Go to tab by number
 noremap <leader>1 1gt
 noremap <leader>2 2gt
@@ -142,18 +132,10 @@ set colorcolumn=85
 
 " Open splits
 nmap vs :vsplit<cr>
-nmap sp :split<cr>
-
-"Resize vsplit
-nmap <C-v> :vertical resize +5<cr>
-nmap 25 :vertical resize 40<cr>
-nmap 75 :vertical resize 120<cr>
+nmap :sp :rightbelow sp<cr>
 
 "open/toggle Nerdtree in Sidebar
 nmap <C-b> :NERDTreeToggle<cr>
-
-" Create split below
-nmap :sp :rightbelow sp<cr>
 
 " move betwwen splits
 nnoremap <C-j> <C-W><C-J>
