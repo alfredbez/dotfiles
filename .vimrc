@@ -131,6 +131,7 @@ set undofile
 set scrolloff=3
 set encoding=utf-8
 set colorcolumn=85
+set pastetoggle=<F10>
 
 " Open splits
 nmap vs :vsplit<cr>
@@ -181,7 +182,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
                      \ 'passive_filetypes': ['xml'] }
-
+nnoremap <F9> :SyntasticToggleMode<CR>
 """"""""""""""""""""""""""""""""""""""""""""""
 " automatically jump to end of text you pasted
 """"""""""""""""""""""""""""""""""""""""""""""
