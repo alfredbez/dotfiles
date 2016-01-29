@@ -59,6 +59,8 @@ set wildignore+=*/node_modules/*
 set wildignore+=*/vendor/*
 set wildignore+=*/bower_components/*
 nnoremap <Leader>o :CtrlP<CR>
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+nnoremap <buffer> <C-d> :call pdv#DocumentWithSnip()<CR>
 " Enter visual mode with <space><space>
 nmap <Leader><Leader> V
 " Go to tab by number
