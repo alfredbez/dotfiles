@@ -137,8 +137,10 @@ set pastetoggle=<F10>
 nmap vs :vsplit<cr>
 nmap :sp :rightbelow sp<cr>
 
-"open/toggle Nerdtree in Sidebar
+" Nerdtree
 nmap <C-b> :NERDTreeToggle<cr>
+nmap <F6> :NERDTreeFind<cr>
+
 
 " move betwwen splits
 nnoremap <C-j> <C-W><C-J>
