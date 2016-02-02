@@ -13,7 +13,7 @@ filetype plugin indent on
 """"""""""""""""""""""""""
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme ego
 set t_Co=256
 
 """""""""""""""""""""""
