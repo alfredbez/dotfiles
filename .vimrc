@@ -160,6 +160,7 @@ nmap :bn :BufSurfForward<cr>
 noremap <leader>n :bn<cr>
 noremap <leader>p :bp<cr>
 noremap <leader>d :bd<cr>
+noremap <leader>b :buffer
 
 highlight Search cterm=underline
 
