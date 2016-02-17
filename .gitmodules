@@ -97,3 +97,9 @@
 [submodule ".vim/bundle/ctrlp.vim"]
     path = .vim/bundle/ctrlp.vim
     url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule ".vim/bundle/vim-php-cs-fixer"]
+	path = .vim/bundle/vim-php-cs-fixer
+	url = git@github.com:stephpy/vim-php-cs-fixer.git
+[submodule ".vim/bundle/vim-do"]
+	path = .vim/bundle/vim-do
+	url = git@github.com:joonty/vim-do.git

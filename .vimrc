@@ -39,28 +39,30 @@ if exists("&undodir")
     set undodir=~/.vim/undo
 endif
 
-
 """""""""""""""""""""""""""""
 " Show “invisible” characters
 """""""""""""""""""""""""""""
+set list
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+autocmd FileType nerdtree setlocal nolist
 
 
 """"""""""""""""""""""""""
 " Keybindings
 """"""""""""""""""""""""""
 let mapleader = "\<Space>"
+nnoremap t <C-]>
 " Type <Space>q to close file
 nnoremap <Leader>q :q<CR>
-" Type <Space>w to save file
-nnoremap <Leader>w :w<CR>
+" Press Enter in normal mode to save file
+" nnoremap <CR> :w<CR>
 " Type <Space>o to open a new file
+nnoremap <Leader>o :CtrlP<CR>
 set wildignore+=*/node_modules/*
 set wildignore+=*/vendor/*
 set wildignore+=*/bower_components/*
-nnoremap <Leader>o :CtrlP<CR>
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-nnoremap <buffer> <C-d> :call pdv#DocumentWithSnip()<CR>
+nnoremap <C-d> :call pdv#DocumentWithSnip()<CR>
 " Enter visual mode with <space><space>
 nmap <Leader><Leader> V
 " Go to tab by number
@@ -88,12 +90,16 @@ vnoremap <leader>k :m-2<cr>gv=gv
 " auto-close { and place cursor
 inoremap {<CR> {<CR>}<C-o>O
 
+"""""""""""""""""""""""""""""""""""""""
+" edit vimrc with <leader>v
+"""""""""""""""""""""""""""""""""""""""
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
 """""""""""""""""""""""""""""
 " improved search and replace
 """""""""""""""""""""""""""""
 vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
     \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
-omap s :normal vs<CR>
 " search for visually selected text
 vnoremap // y/<C-R>"<CR>
 
@@ -101,7 +107,7 @@ vnoremap // y/<C-R>"<CR>
 " my config
 """"""""""""""""""""""""""
 set smarttab
-set tags=tags
+set tags=tags;/
 set softtabstop=4                           " when hitting <BS>, pretend like a tab is removed, even if spaces
 set expandtab                               " expand tabs by default (overloadable per file type later)
 set nowrap                                  " don't wrap lines
@@ -117,14 +123,14 @@ set ignorecase                              " ignore case when searching
 set smartcase                               " ignore case if search pattern is all lowercase,
                                             "   case-sensitive otherwise
 set smarttab                                " insert tabs on the start of a line according to
-                                            "shiftwidth, not tabstop
+                                            " shiftwidth, not tabstop
 set hlsearch                                " highlight search terms
 set incsearch                               " show search matches as you type
 set laststatus=2
 set timeout timeoutlen=200 ttimeoutlen=100
 set visualbell                              " don't beep
 set noerrorbells                            " don't beep
-set autowrite                               "Save on buffer switch
+set autowrite                               " Save on buffer switch
 set showcmd
 set relativenumber
 set undofile
@@ -159,6 +165,7 @@ autocmd cursormoved * set hlsearch
 
 " strip trailing whitespace
 autocmd FileType javascript,html,php,css,vim autocmd BufWritePre <buffer> StripWhitespace
+
 " Convert Tabs to Spaces
 autocmd BufWritePre <buffer> retab
 
@@ -169,6 +176,9 @@ let g:airline_theme='powerlineish'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_section_z=''
+let g:airline#extensions#tabline#enabled = 1
+let airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
 
 """"""""""""""""
 " Syntax-Check
@@ -185,19 +195,29 @@ let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
                      \ 'passive_filetypes': ['xml'] }
 nnoremap <F9> :SyntasticToggleMode<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""
 " automatically jump to end of text you pasted
 """"""""""""""""""""""""""""""""""""""""""""""
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
-" select pasted text
+
+"select pasted text
 noremap gV `[v`]
 
 " show tags
 nmap <F8> :TagbarToggle<CR>
 
-" emmet
+""""""""""""""""
+" emmet Settings
+""""""""""""""""
 let g:user_emmet_mode='a'    "enable all function in all mode.
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,scss EmmetInstall
+
+"""""""""""""""""""""""
+" EditorConfig Settings
+"""""""""""""""""""""""
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+let g:EditorConfig_exec_path = '/usr/bin/editorconfig'

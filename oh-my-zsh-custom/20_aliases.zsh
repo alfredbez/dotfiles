@@ -7,12 +7,14 @@ alias ca='clocker archive'
 alias cl='clocker list'
 alias ack='ack-grep'
 alias copy='xclip -sel clip <'
-alias selenium='java -jar ~/.selenium-server-standalone-2.45.0.jar'
+alias selenium='java -jar ~/.selenium-server.jar'
 alias createCommitMsgHook='. ~/dotfiles/scripts/createCommitMsgHook.sh'
 alias serve='python -m SimpleHTTPServer'
 alias pt='perltidy'
 alias search='grep -nrw . -e'
 alias less='less -N'
+unalias ag
+alias grs='git reset --soft HEAD~1'
 
 if [ $(uname -s) = "Linux" ]; then
     alias open="gnome-open"
