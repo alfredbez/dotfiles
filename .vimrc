@@ -157,6 +157,9 @@ nnoremap <C-h> <C-W><C-H>
 " Quickly go forward or backward to buffer
 nmap :bp :BufSurfBack<cr>
 nmap :bn :BufSurfForward<cr>
+noremap <leader>n :bn<cr>
+noremap <leader>p :bp<cr>
+noremap <leader>d :bd<cr>
 
 highlight Search cterm=underline
 
