@@ -183,6 +183,8 @@ let g:airline_section_z=''
 let g:airline#extensions#tabline#enabled = 1
 let airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_format = '%s: '
 
 """"""""""""""""
 " Syntax-Check
