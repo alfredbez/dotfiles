@@ -42,10 +42,10 @@ endif
 """""""""""""""""""""""""""""
 " Show “invisible” characters
 """""""""""""""""""""""""""""
-set list
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 autocmd FileType nerdtree setlocal nolist
-
+" F4: Toggle list (display unprintable characters).
+nnoremap <F4> :set list!<CR>
 
 """"""""""""""""""""""""""
 " Keybindings
