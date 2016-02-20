@@ -77,16 +77,6 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
-""""""""""""""""""""""""""""""""
-" Moving lines and selections with Ctrl-J and K
-"""""""""""""""""""""""""""""""""
-nnoremap <leader>k :m-2<cr>==
-nnoremap <leader>j :m+<cr>==
-inoremap <leader>j <esc>:m+<cr>==gi
-inoremap <leader>k <esc>:m-2<cr>==gi
-vnoremap <leader>j :m'>+<cr>gv=gv
-vnoremap <leader>k :m-2<cr>gv=gv
-
 " auto-close { and place cursor
 inoremap {<CR> {<CR>}<C-o>O
 
@@ -201,6 +191,16 @@ let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
                      \ 'passive_filetypes': ['xml'] }
 nnoremap <F9> :SyntasticToggleMode<CR>
+
+""""""""""""""""
+" text bubbling
+""""""""""""""""
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " automatically jump to end of text you pasted
