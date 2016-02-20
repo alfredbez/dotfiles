@@ -22,13 +22,12 @@ set t_Co=256
 set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Mono.otf\ 11
 
 """"""""""""""""""""""""""""
-" aktuelle Zeile hervorheben
+" highlight current line
 """"""""""""""""""""""""""""
 set cursorline
-hi cursorline cterm=none term=none
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
-highlight CursorLine guibg=#303000 ctermbg=black
+highlight CursorLine cterm=none term=none guibg=#303000 ctermbg=black
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Centralize backups, swapfiles and undo history
@@ -54,8 +53,8 @@ let mapleader = "\<Space>"
 nnoremap t <C-]>
 " Type <Space>q to close file
 nnoremap <Leader>q :q<CR>
-" Press Enter in normal mode to save file
-" nnoremap <CR> :w<CR>
+" Type <Space>q to close file
+nnoremap <Leader>w :w<CR>
 " Type <Space>o to open a new file
 nnoremap <Leader>o :CtrlP<CR>
 set wildignore+=*/node_modules/*
@@ -63,7 +62,7 @@ set wildignore+=*/vendor/*
 set wildignore+=*/bower_components/*
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <C-d> :call pdv#DocumentWithSnip()<CR>
-" Enter visual mode with <space><space>
+" Enter visual line mode with <space><space>
 nmap <Leader><Leader> V
 " Go to tab by number
 noremap <leader>1 1gt
