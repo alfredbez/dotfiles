@@ -1,12 +1,13 @@
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="agnoster"
+PURE_PROMPT_SYMBOL=→
+ZSH_THEME="pure"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
 SAVEHIST=100000
 HISTSIZE=1000
 ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh-custom
-plugins=(git vagrant composer cp common-aliases sublime sudo z calc debian svn zsh-syntax-highlighting)
+plugins=(git vagrant composer cp common-aliases sublime sudo z calc debian svn zsh-syntax-highlighting async)
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH=~/bin:$PATH

@@ -106,3 +106,6 @@
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = git@github.com:tpope/vim-unimpaired.git
+[submodule "submodules/pure"]
+	path = submodules/pure
+	url = git@github.com:sindresorhus/pure.git
