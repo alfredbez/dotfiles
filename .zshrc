@@ -7,7 +7,9 @@ HIST_STAMPS="dd.mm.yyyy"
 SAVEHIST=100000
 HISTSIZE=1000
 ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh-custom
-plugins=(git vagrant composer cp common-aliases sublime sudo z calc debian svn zsh-syntax-highlighting async)
+plugins=(git vagrant composer cp common-aliases sublime sudo z calc debian svn async zsh-syntax-highlighting)
+
+zle -N clear-screen prompt_pure_clear_screen
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH=~/bin:$PATH
