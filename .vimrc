@@ -226,3 +226,16 @@ autocmd FileType html,css,scss EmmetInstall
 """""""""""""""""""""""
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:EditorConfig_exec_path = '/usr/bin/editorconfig'
+
+"""""""""""""""""""""""""
+" PHP Syntax Optimization
+"""""""""""""""""""""""""
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
