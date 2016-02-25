@@ -193,6 +193,11 @@ let g:airline#extensions#tabline#buffer_nr_format = '%s: '
 let g:php_cs_fixer_enable_default_mapping = 0
 nnoremap <silent><leader>f :silent call PhpCsFixerFixFile()<CR>
 
+""""""""""""""""""""""""""""""""""
+" php-refactoring-browser settings
+""""""""""""""""""""""""""""""""""
+let g:php_refactor_command='php ~/.dotfiles/submodules/refactor.phar'
+
 """"""""""""""""
 " Syntax-Check
 """"""""""""""""

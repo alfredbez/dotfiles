@@ -109,3 +109,6 @@
 [submodule "submodules/pure"]
 	path = submodules/pure
 	url = git@github.com:sindresorhus/pure.git
+[submodule ".vim/bundle/vim-php-refactoring"]
+	path = .vim/bundle/vim-php-refactoring
+	url = git@github.com:vim-php/vim-php-refactoring.git
