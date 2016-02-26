@@ -1,0 +1,6 @@
+language: bash
+
+before_script:
+  - 'sudo apt-get install zsh'
+
+script: install.sh
