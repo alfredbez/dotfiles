@@ -168,6 +168,8 @@ highlight Search cterm=underline
 autocmd cursorhold * set nohlsearch
 autocmd cursormoved * set hlsearch
 
+noremap <leader>h :noh<cr>
+
 " strip trailing whitespace
 autocmd FileType javascript,html,php,css,vim autocmd BufWritePre <buffer> StripWhitespace
 
