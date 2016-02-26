@@ -2,11 +2,14 @@
 
 # some helper functions, credits to Ben "cowboy" Alman
 # see https://github.com/cowboy/dotfiles/blob/master/bin/dotfiles#L26-L30
-function e_header()   { echo -e "\n\033[1m$@\033[0m"; }
-function e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
-function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
-function e_arrow()    { echo -e " \033[1;34m➜\033[0m  $@"; }
+function e_header()  { echo -e "\n\033[1m$@\033[0m"; }
+function e_success() { echo -e " \033[1;32m✔\033[0m  $@"; }
+function e_error()   { echo -e " \033[1;31m✖\033[0m  $@"; }
+function e_arrow()   { echo -e " \033[1;34m➜\033[0m  $@"; }
 
+function is_ubuntu() {
+    [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
+}
 function symlink() {
     if [ -h "$2" ]; then
         local target="$(readlink -f ${2})"
@@ -16,14 +19,34 @@ function symlink() {
         fi
     fi
     if [ -f "$2" ]; then
-    e_error "File already exists!"
-    local newname="$2.$(date +%s)"
-    mv "$2" "$newname" && e_success "renamed to $newname"
+        e_error "File already exists!"
+        local newname="$2.$(date +%s)"
+        mv "$2" "$newname" && e_success "renamed to $newname"
     fi
     ln -s "$1" "$2"
 }
+function install() {
+    if is_ubuntu; then
+        sudo apt-get install -y $1 > /dev/null
+        e_success "installed $1"
+    fi
+}
 
 # zsh
+if [ $(basename $SHELL) != 'zsh' ]; then
+    e_header "you're currently not running zsh"
+    ZSH_PATH=$(which zsh)
+    if [ ! $ZSH_PATH ]; then
+        e_header "installing zsh"
+        install zsh
+    fi
+    ZSH_PATH=$(which zsh)
+    if [ $ZSH_PATH ]; then
+        chsh -s $ZSH_PATH
+    else
+        e_error "you need to install zsh"
+    fi
+fi
 if [ ! -d $HOME/.oh-my-zsh ]; then
     e_error "oh-my-zsh not found!"
     e_header "install it automatically..."
@@ -44,14 +67,6 @@ fi
 symlink "$HOME/.dotfiles/.vim" "$HOME/.vim"
 symlink "$HOME/.dotfiles/.vimrc" "$HOME/.vimrc"
 e_success "created vim symlinks"
-
-# git
-symlink "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
-git config --global core.excludesfile $HOME/.gitignore_global
-e_success "configured git"
-e_arrow "reminder: set your git name and email like this: \
-\n\t git config --global user.email \"foo@bar.com\" \
-\n\t git config --global user.name \"Foo Bar\""
 
 # sublime-text
 SUBLIME_TEXT_USER_PATH=""
@@ -84,3 +99,12 @@ symlink "$HOME/.dotfiles/.editorconfig" "$HOME/.editorconfig"
 symlink "$HOME/.dotfiles/.wgetrc" "$HOME/.wgetrc"
 symlink "$HOME/.dotfiles/.colordiffrc" "$HOME/.colordiffrc"
 e_success "symlinked random stuff"
+
+# git
+symlink "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
+git config --global core.excludesfile $HOME/.gitignore_global
+e_success "configured git"
+e_arrow "reminder: set your git name and email like this: \
+\n\t git config --global user.email \"foo@bar.com\" \
+\n\t git config --global user.name \"Foo Bar\""
+
