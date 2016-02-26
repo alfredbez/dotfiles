@@ -1,0 +1,6 @@
+--exclude=.git
+--exclude=node_modules
+--exclude=log
+--regex-php=/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i
+--recurse
+

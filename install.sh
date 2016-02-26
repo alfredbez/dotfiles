@@ -93,6 +93,7 @@ if [ ! "$SUBLIME_TEXT_USER_PATH" == "" ]; then
 fi
 
 # random
+symlink "$HOME/.dotfiles/.ctags" "$HOME/.ctags"
 symlink "$HOME/.dotfiles/.ackrc" "$HOME/.ackrc"
 symlink "$HOME/.dotfiles/.curlrc" "$HOME/.curlrc"
 symlink "$HOME/.dotfiles/.editorconfig" "$HOME/.editorconfig"
