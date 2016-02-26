@@ -53,8 +53,8 @@ let mapleader = "\<Space>"
 nnoremap t <C-]>
 " Type <Space>q to close file
 nnoremap <Leader>q :q<CR>
-" Type <Space>q to close file
-nnoremap <Leader>w :w<CR>
+" Type <Enter> to write file
+map <Enter> :w<CR>
 " Type <Space>o to open a new file
 nnoremap <Leader>o :CtrlP<CR>
 set wildignore+=*/node_modules/*
