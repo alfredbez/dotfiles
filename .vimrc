@@ -140,6 +140,9 @@ set encoding=utf-8
 set colorcolumn=85
 set pastetoggle=<F10>
 
+" F3: Toggle line numbers
+nnoremap <F3> :set rnu! nu!<CR>
+
 " Open splits
 nmap vs :vsplit<cr>
 nmap :sp :rightbelow sp<cr>
