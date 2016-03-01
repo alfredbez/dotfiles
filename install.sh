@@ -7,9 +7,6 @@ function e_success() { echo -e " \033[1;32m✔\033[0m  $@"; }
 function e_error()   { echo -e " \033[1;31m✖\033[0m  $@"; }
 function e_arrow()   { echo -e " \033[1;34m➜\033[0m  $@"; }
 
-function is_ubuntu() {
-    [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
-}
 function symlink() {
     if [ -h "$2" ]; then
         local target="$(readlink -f ${2})"
@@ -25,28 +22,8 @@ function symlink() {
     fi
     ln -s "$1" "$2"
 }
-function install() {
-    if is_ubuntu; then
-        sudo apt-get install -y $1 > /dev/null
-        e_success "installed $1"
-    fi
-}
 
 # zsh
-if [ $(basename $SHELL) != 'zsh' ]; then
-    e_header "you're currently not running zsh"
-    ZSH_PATH=$(which zsh)
-    if [ ! $ZSH_PATH ]; then
-        e_header "installing zsh"
-        install zsh
-    fi
-    ZSH_PATH=$(which zsh)
-    if [ $ZSH_PATH ]; then
-        chsh -s $ZSH_PATH
-    else
-        e_error "you need to install zsh"
-    fi
-fi
 if [ ! -d $HOME/.oh-my-zsh ]; then
     e_error "oh-my-zsh not found!"
     e_header "install it automatically..."
