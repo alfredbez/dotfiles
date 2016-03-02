@@ -50,7 +50,7 @@ nnoremap <F4> :set list!<CR>
 " Keybindings
 """"""""""""""""""""""""""
 let mapleader = "\<Space>"
-nnoremap t <C-]>
+nnoremap <Leader>t <C-]>
 " Type <Space>q to close file
 nnoremap <Leader>q :q<CR>
 " Type <Enter> to write file
