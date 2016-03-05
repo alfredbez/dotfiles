@@ -55,6 +55,8 @@ nnoremap t <C-]>
 nnoremap <Leader>q :q<CR>
 " Type <Enter> to write file
 map <Enter> :w<CR>
+" do not map <CR> in quickfix
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 " Type <Space>o to open a new file
 nnoremap <Leader>o :CtrlP<CR>
 set wildignore+=*/node_modules/*
@@ -139,6 +141,9 @@ set scrolloff=3
 set encoding=utf-8
 set colorcolumn=85
 set pastetoggle=<F10>
+
+" F3: Toggle line numbers
+nnoremap <F3> :set rnu! nu!<CR>
 
 " Open splits
 nmap vs :vsplit<cr>
