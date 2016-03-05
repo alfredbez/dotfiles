@@ -112,9 +112,12 @@
 [submodule ".vim/bundle/vim-php-refactoring"]
     path = .vim/bundle/vim-php-refactoring
     url = https://github.com/vim-php/vim-php-refactoring.git
+[submodule ".vim/bundle/vim-sync"]
+    path = .vim/bundle/vim-sync
+    url = https://github.com/eshion/vim-sync.git
 [submodule ".vim/bundle/vim-startify"]
-	path = .vim/bundle/vim-startify
-	url = https://github.com/mhinz/vim-startify.git
+    path = .vim/bundle/vim-startify
+    url = https://github.com/mhinz/vim-startify.git
 [submodule ".vim/bundle/vim-bufonly"]
-	path = .vim/bundle/vim-bufonly
-	url = https://github.com/schickling/vim-bufonly
+    path = .vim/bundle/vim-bufonly
+    url = https://github.com/schickling/vim-bufonly
