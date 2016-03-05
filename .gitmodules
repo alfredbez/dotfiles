@@ -112,3 +112,6 @@
 [submodule ".vim/bundle/vim-php-refactoring"]
     path = .vim/bundle/vim-php-refactoring
     url = https://github.com/vim-php/vim-php-refactoring.git
+[submodule ".vim/bundle/vim-sync"]
+	path = .vim/bundle/vim-sync
+	url = https://github.com/eshion/vim-sync.git
