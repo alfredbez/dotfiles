@@ -36,12 +36,13 @@
 ehthumbs.db
 Thumbs.db
 
-# VIM generated files #
-#######################
+# VIM stuff #
+#############
 *~
 *.swp
 *.bak
 .idea
+.sync
 
 # misc #
 ########
