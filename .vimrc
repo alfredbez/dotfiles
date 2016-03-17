@@ -276,6 +276,14 @@ else
     \ }
 endif
 
+"""""""""""""""""""""""""""""""""
+" Vagrantfile Syntax Highlighting
+"""""""""""""""""""""""""""""""""
+augroup vagrant
+  au!
+  au BufRead,BufNewFile Vagrantfile,Vagrantfile.local set filetype=ruby
+augroup END
+
 """""""""""""""""""""""""
 " PHP Syntax Optimization
 """""""""""""""""""""""""
