@@ -51,6 +51,7 @@ Thumbs.db
 node_modules
 sftp-config.json
 Vagrantfile.local
+.vagrant
 tags
 notes
 
