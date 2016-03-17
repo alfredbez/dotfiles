@@ -257,6 +257,10 @@ autocmd FileType html,css,scss EmmetInstall
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:EditorConfig_exec_path = '/usr/bin/editorconfig'
 
+" Gutentags Settings
+let g:gutentags_exclude = ['*.css', '*.html', '*.js']
+let g:gutentags_cache_dir = '~/.vim/gutentags'
+
 """"""""""""""""""""
 " Make Ctrl-P faster
 """"""""""""""""""""
