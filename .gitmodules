@@ -121,3 +121,9 @@
 [submodule ".vim/bundle/vim-bufonly"]
     path = .vim/bundle/vim-bufonly
     url = https://github.com/schickling/vim-bufonly
+[submodule ".vim/bundle/Colorizer"]
+	path = .vim/bundle/Colorizer
+	url = https://github.com/chrisbra/Colorizer.git
+[submodule ".vim/bundle/vim-gutentags"]
+	path = .vim/bundle/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags.git
