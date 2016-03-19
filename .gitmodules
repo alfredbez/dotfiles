@@ -127,3 +127,6 @@
 [submodule ".vim/bundle/vim-gutentags"]
 	path = .vim/bundle/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule ".vim/bundle/vim.typoscript"]
+	path = .vim/bundle/vim.typoscript
+	url = https://github.com/elmar-hinz/vim.typoscript.git
