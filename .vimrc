@@ -198,7 +198,7 @@ let g:airline#extensions#tabline#buffer_nr_format = '%s: '
 " php-cs-fixer settings
 """"""""""""""""
 let g:php_cs_fixer_enable_default_mapping = 0
-nnoremap <silent><leader>f :silent call PhpCsFixerFixFile()<CR>
+nnoremap <silent><leader>f :w \| :silent call PhpCsFixerFixFile()<CR>
 
 """"""""""""""""""""""""""""""""""
 " php-refactoring-browser settings
