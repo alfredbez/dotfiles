@@ -1,5 +1,6 @@
 {
 	"bootstrapped": true,
+	"debug": true,
 	"in_process_packages":
 	[
 	],
@@ -14,6 +15,7 @@
 		"Dotfiles Syntax Highlighting",
 		"EditorConfig",
 		"Emmet",
+		"Expand Selection to Quotes",
 		"FindKeyConflicts",
 		"Git",
 		"Git-StatusBar",
@@ -23,17 +25,16 @@
 		"jQuery",
 		"Keymaps",
 		"Local History",
+		"Materialize",
 		"Missing Palette Commands",
 		"ModernPerl",
 		"MoveTab",
 		"Package Control",
-		"PerlSubs",
-		"PerlTidy",
 		"Phpcs",
-		"PlainTasks",
 		"Puppet",
+		"Schemr",
 		"SCSS",
-		"Seti_UI",
+		"SFTP",
 		"SideBarEnhancements",
 		"Smarty",
 		"SublimeCodeIntel",
@@ -42,7 +43,9 @@
 		"SublimeLinter-contrib-perlcritic",
 		"SublimeLinter-jshint",
 		"SublimeLinter-php",
+		"Themr",
 		"TrailingSpaces",
+		"TypoScript",
 		"Xdebug Client"
 	]
 }
