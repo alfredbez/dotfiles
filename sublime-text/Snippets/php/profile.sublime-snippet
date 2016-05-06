@@ -1,0 +1,12 @@
+<snippet>
+  <content><![CDATA[
+\$start = microtime(true);
+for (\$i=0; \$i < ${2:10000}; \$i++) {
+    ${1://code}
+}
+\$end = microtime(true);
+echo \$end-\$start;
+]]></content>
+  <tabTrigger>profile</tabTrigger>
+  <scope>source.php</scope>
+</snippet>
