@@ -1,5 +1,7 @@
 [
     { "keys": ["ctrl+space"], "command": "expand_selection_to_quotes" },
     { "keys": ["ctrl+u"], "command": "soft_undo" },
-    { "keys": ["alt+d"], "command": "goto_definition" }
+    { "keys": ["alt+d"], "command": "goto_definition" },
+    { "keys": ["ctrl+#"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["ctrl+shift+#"], "command": "toggle_comment", "args": { "block": true } }
 ]
