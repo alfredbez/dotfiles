@@ -284,6 +284,18 @@ augroup vagrant
   au BufRead,BufNewFile Vagrantfile,Vagrantfile.local set filetype=ruby
 augroup END
 
+" F1 opens documentation for php/perl function under cursor
+function! BrowseDoc()
+    if b:current_syntax == "php"
+        silent exec "!xdg-open 'http://php.net/manual-lookup.php?pattern=<cword>'"
+    elseif b:current_syntax == "perl"
+        ! xdg-open "http://perldoc.perl.org/search.html?q=<cword>"
+    else
+        return
+    endif
+endfunction
+map <F1> :call BrowseDoc()^M^M<CR>
+
 """""""""""""""""""""""""
 " PHP Syntax Optimization
 """""""""""""""""""""""""
