@@ -20,7 +20,7 @@
 		"CVS",
 		"node_modules"
 	],
-	"font_face": "Source Code Pro",
+	"font_face": "Fira Code",
 	"font_options":
 	[
 		"no_round"
