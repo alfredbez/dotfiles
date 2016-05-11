@@ -16,6 +16,7 @@
 		"EditorConfig",
 		"Emmet",
 		"Expand Selection to Quotes",
+		"File History",
 		"FindKeyConflicts",
 		"Git",
 		"Git-StatusBar",
@@ -48,6 +49,7 @@
 		"Themr",
 		"TrailingSpaces",
 		"TypoScript",
-		"Xdebug Client"
+		"Xdebug Client",
+		"Zen Tabs"
 	]
 }

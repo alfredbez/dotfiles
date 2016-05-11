@@ -3,5 +3,7 @@
     { "keys": ["ctrl+u"], "command": "soft_undo" },
     { "keys": ["alt+d"], "command": "goto_definition" },
     { "keys": ["ctrl+#"], "command": "toggle_comment", "args": { "block": false } },
-    { "keys": ["ctrl+shift+#"], "command": "toggle_comment", "args": { "block": true } }
+    { "keys": ["ctrl+shift+#"], "command": "toggle_comment", "args": { "block": true } },
+    { "keys": ["ctrl+e"], "command": "open_recently_closed_file", "args": {"current_project_only": false} },
+    { "keys": ["ctrl+,"], "command": "open_file", "args": {"file": "/home/abez/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"} }
 ]
