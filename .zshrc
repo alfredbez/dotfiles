@@ -7,7 +7,7 @@ HIST_STAMPS="dd.mm.yyyy"
 SAVEHIST=100000
 HISTSIZE=1000
 ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh-custom
-plugins=(git vagrant composer cp common-aliases sublime sudo z calc archlinux debian svn async zsh-syntax-highlighting)
+plugins=(git vagrant composer cp common-aliases sublime sudo z calc archlinux debian zsh-wakatime svn async zsh-syntax-highlighting)
 
 zle -N clear-screen prompt_pure_clear_screen
 

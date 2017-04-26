@@ -130,3 +130,6 @@
 [submodule ".vim/bundle/vim.typoscript"]
 	path = .vim/bundle/vim.typoscript
 	url = https://github.com/elmar-hinz/vim.typoscript.git
+[submodule "oh-my-zsh-custom/plugins/zsh-wakatime"]
+	path = oh-my-zsh-custom/plugins/zsh-wakatime
+	url = https://github.com/wbinglee/zsh-wakatime.git
