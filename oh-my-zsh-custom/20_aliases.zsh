@@ -13,7 +13,6 @@ alias serve='python -m SimpleHTTPServer'
 alias pt='perltidy'
 alias search='grep -nrw . -e'
 alias less='less -N'
-unalias ag
 alias grs='git reset --soft HEAD~1'
 
 if [ $(uname -s) = "Linux" ]; then
