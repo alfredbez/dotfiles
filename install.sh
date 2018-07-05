@@ -16,7 +16,7 @@ function symlink() {
         fi
     fi
     if [ -f "$2" ]; then
-        e_error "File already exists!"
+        e_error "File ($2) already exists!"
         local newname="$2.$(date +%s)"
         mv "$2" "$newname" && e_success "renamed to $newname"
     fi
