@@ -40,6 +40,10 @@ else
     e_error "something gone wrong, you need to install oh-my-zsh on manually"
 fi
 
+# hyperterm stuff
+symlink "$HOME/.dotfiles/.hyper.js" "$HOME/.hyper.js"
+e_success "created hyper.js symlinks"
+
 # VIM stuff
 symlink "$HOME/.dotfiles/.vim" "$HOME/.vim"
 symlink "$HOME/.dotfiles/.vimrc" "$HOME/.vimrc"
