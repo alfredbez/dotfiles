@@ -13,6 +13,7 @@ zle -N clear-screen prompt_pure_clear_screen
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH=~/bin:$PATH
+export PATH=~/.config/composer/vendor/bin:$PATH
 export PATH="/usr/local/heroku/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
