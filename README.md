@@ -8,6 +8,6 @@
 
 1. Set your shell to zsh `sudo chsh -s $(which zsh)`
 
-1. Clone this repo: `git clone --recursive https://github.com/alfredbez/dotfiles.git "~/.dotfiles"`
+1. Clone this repo: `git clone --recursive https://github.com/alfredbez/dotfiles.git ~/.dotfiles`
 
 1. Just run `~/.dotfiles/install.sh`
