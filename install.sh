@@ -85,6 +85,8 @@ e_success "symlinked random stuff"
 # git
 symlink "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
 git config --global core.excludesfile $HOME/.gitignore_global
+symlink "$HOME/.dotfiles/.gitconfig.inc" "$HOME/.gitconfig.inc"
+git config --global include.path $HOME/.gitconfig.inc
 e_success "configured git"
 e_arrow "reminder: set your git name and email like this: \
 \n\t git config --global user.email \"foo@bar.com\" \
