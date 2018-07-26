@@ -14,6 +14,8 @@ alias pt='perltidy'
 alias search='grep -nrw . -e'
 alias less='less -N'
 alias grs='git reset --soft HEAD~1'
+alias vss='vagrant status'
+alias vssh='vagrant ssh'
 
 if [ $(uname -s) = "Linux" ]; then
     alias open="gnome-open"
