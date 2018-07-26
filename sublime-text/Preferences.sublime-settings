@@ -1,78 +1,83 @@
 {
-    "additional_path_items":
-    [],
-    "bold_folder_labels": true,
-    "caret_style": "phase",
-    "close_windows_when_empty": false,
-    "color_scheme": "Packages/Materialize/schemes/Material One Dark.tmTheme",
-    "copy_with_empty_selection": false,
-    "drag_text": false,
-    "draw_minimap_border": true,
-    "enable_tab_scrolling": false,
-    "expand_tabs_on_save": false,
-    "folder_exclude_patterns":
-    [
-        ".svn",
-        ".git",
-        ".hg",
-        "CVS",
-        "node_modules",
-        "vendor"
-    ],
-    "font_face": "Fira Code",
-    "font_options":
-    [
-        "no_round"
-    ],
-    "font_size": 15,
-    "highlight_line": true,
-    "highlight_modified_tabs": true,
-    "hot_exit": false,
-    "ignored_packages":
-    [
-        "Phpcs",
-        "phpfmt"
-    ],
-    "indent_guide_options":
-    [
-        "draw_normal",
-        "draw_active"
-    ],
-    "line_padding_bottom": 4.5,
-    "line_padding_top": 3.5,
-    "match_brackets": true,
-    "match_brackets_angle": true,
-    "match_brackets_braces": true,
-    "match_brackets_content": true,
-    "match_brackets_square": true,
-    "match_selection": false,
-    "match_tags": false,
-    "open_files_in_new_window": false,
-    "overlay_scroll_bars": "enabled",
-    "paths":
-    {
-        "linux":
-        [
-            "/usr/bin"
-        ],
-        "osx":
-        [
-        ],
-        "windows":
-        [
-        ]
-    },
-    "remember_open_files": false,
-    "remember_open_folders": false,
-    "scroll_past_end": true,
-    "scroll_speed": 5.0,
-    "show_encoding": true,
-    "show_full_path": true,
-    "tab_completion": true,
-    "tab_size": 2,
-    "theme": "Material One Dark.sublime-theme",
-    "translate_tabs_to_spaces": false,
-    "trim_trailing_white_space_on_save": true,
-    "update_check": false,
-    "word_wrap": false
+	"additional_path_items":
+	[
+	],
+	"bold_folder_labels": true,
+	"caret_style": "phase",
+	"close_windows_when_empty": false,
+	"color_scheme": "Packages/Materialize/schemes/Material One Dark.tmTheme",
+	"copy_with_empty_selection": false,
+	"drag_text": false,
+	"draw_minimap_border": true,
+	"enable_tab_scrolling": false,
+	"expand_tabs_on_save": false,
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"node_modules",
+		"vendor"
+	],
+	"font_face": "Fira Code",
+	"font_options":
+	[
+		"no_round"
+	],
+	"font_size": 15,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+		"Julia",
+		"ModernPerl",
+		"Phpcs",
+		"phpfmt",
+		"Puppet",
+		"Swift"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"line_padding_bottom": 4.5,
+	"line_padding_top": 3.5,
+	"match_brackets": true,
+	"match_brackets_angle": true,
+	"match_brackets_braces": true,
+	"match_brackets_content": true,
+	"match_brackets_square": true,
+	"match_selection": false,
+	"match_tags": false,
+	"open_files_in_new_window": false,
+	"overlay_scroll_bars": "enabled",
+	"paths":
+	{
+		"linux":
+		[
+			"/usr/bin"
+		],
+		"osx":
+		[
+		],
+		"windows":
+		[
+		]
+	},
+	"remember_open_files": false,
+	"remember_open_folders": false,
+	"scroll_past_end": true,
+	"scroll_speed": 5.0,
+	"show_encoding": true,
+	"show_full_path": true,
+	"tab_completion": true,
+	"tab_size": 2,
+	"theme": "Material One Dark.sublime-theme",
+	"translate_tabs_to_spaces": false,
+	"trim_trailing_white_space_on_save": true,
+	"update_check": false,
+	"word_wrap": false
 }
