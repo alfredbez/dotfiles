@@ -65,6 +65,32 @@ function sd () {
     svn diff --diff-cmd colordiff -x "-u -w -p" "$1" | less -NR;
 }
 
+#
+#
+# `agvim` allows you to search for a pattern with `ag` and open the given file
+# directly with `vim`. If there are multiple files you can choose which one
+# you want to open
+function agvim() {
+    local pattern="${1}";
+    local ag_results=$(ag ${pattern} -l)
+    local ag_results_count=$(echo ${ag_results} | wc -l)
+    if [ ${ag_results_count} -lt 1 ]; then
+        echo "pattern not found"
+    elif [ ${ag_results_count} -eq 1 ]; then
+        vim $(ag ${pattern} -l)
+    elif [ ${ag_results_count} -gt 1 ]; then
+        echo "${ag_results_count} files found, choose one:"
+        IFS=$'\n' results=($(echo ${ag_results}))
+        ITER=1
+        for i in "${results[@]}"; do
+            echo "\t[${ITER}]: ${i}"
+            let ITER=${ITER}+1
+        done
+        read fileIndex
+        vim ${results[$fileIndex]}
+    fi;
+}
+
 if [ -f ~/bin/functions.zsh ]; then
     source ~/bin/functions.zsh
 fi
