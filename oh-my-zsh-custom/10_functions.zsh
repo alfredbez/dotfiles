@@ -72,7 +72,7 @@ function sd () {
 # you want to open
 function agvim() {
     local pattern="${1}";
-    local ag_results=$(ag ${pattern} -l)
+    local ag_results=$(\ag ${pattern} -l)
     local ag_results_count=$(echo ${ag_results} | wc -l)
     if [ ${ag_results_count} -lt 1 ]; then
         echo "pattern not found"
