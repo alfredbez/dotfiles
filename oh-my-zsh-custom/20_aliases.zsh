@@ -16,6 +16,7 @@ alias less='less -N'
 alias grs='git reset --soft HEAD~1'
 alias vss='vagrant status'
 alias vssh='vagrant ssh'
+alias ag='ag --pager="less -XFR"'
 
 if [ $(uname -s) = "Linux" ]; then
     alias open="gnome-open"
