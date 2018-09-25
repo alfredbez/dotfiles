@@ -77,7 +77,7 @@ function agvim() {
     if [ ${ag_results_count} -lt 1 ]; then
         echo "pattern not found"
     elif [ ${ag_results_count} -eq 1 ]; then
-        vim $(ag ${pattern} -l)
+        vim ${ag_results} +/${pattern}
     elif [ ${ag_results_count} -gt 1 ]; then
         echo "${ag_results_count} files found, choose one:"
         IFS=$'\n' results=($(echo ${ag_results}))
@@ -87,7 +87,7 @@ function agvim() {
             let ITER=${ITER}+1
         done
         read fileIndex
-        vim ${results[$fileIndex]}
+        vim ${results[$fileIndex]} +/${pattern}
     fi;
 }
 
