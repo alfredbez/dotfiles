@@ -17,6 +17,7 @@ alias grs='git reset --soft HEAD~1'
 alias vss='vagrant status'
 alias vssh='vagrant ssh'
 alias ag='ag --pager="less -XFR"'
+alias phpstan='docker run -v $PWD:/app --rm phpstan/phpstan'
 
 if [ $(uname -s) = "Linux" ]; then
     alias open="gnome-open"
