@@ -1,6 +1,4 @@
 export ZSH=$HOME/.oh-my-zsh
-PURE_PROMPT_SYMBOL=→
-ZSH_THEME="pure"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
