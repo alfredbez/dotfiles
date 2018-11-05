@@ -1,6 +1,4 @@
 export ZSH=$HOME/.oh-my-zsh
-PURE_PROMPT_SYMBOL=→
-ZSH_THEME="pure"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
@@ -8,8 +6,6 @@ SAVEHIST=100000
 HISTSIZE=1000
 ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh-custom
 plugins=(git vagrant composer cp common-aliases sublime sudo z calc debian async zsh-syntax-highlighting git-flow-avh)
-
-zle -N clear-screen prompt_pure_clear_screen
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH=~/bin:$PATH
@@ -31,3 +27,8 @@ if [ -f ~/.zshrc.local ]; then
 fi
 
 RPROMPT='!%!'
+fpath=($fpath "/home/abez/.zfunctions")
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
