@@ -73,14 +73,15 @@ if [ ! "$SUBLIME_TEXT_USER_PATH" == "" ]; then
     symlink "$SUBLIME_TEXT_DOTFILES_PATH/Package_Control.sublime-settings" "$SUBLIME_TEXT_USER_PATH/Package Control.sublime-settings"
 fi
 
-# random
+# other
 symlink "$HOME/.dotfiles/.ctags" "$HOME/.ctags"
 symlink "$HOME/.dotfiles/.ackrc" "$HOME/.ackrc"
 symlink "$HOME/.dotfiles/.curlrc" "$HOME/.curlrc"
 symlink "$HOME/.dotfiles/.editorconfig" "$HOME/.editorconfig"
 symlink "$HOME/.dotfiles/.wgetrc" "$HOME/.wgetrc"
 symlink "$HOME/.dotfiles/.colordiffrc" "$HOME/.colordiffrc"
-e_success "symlinked random stuff"
+symlink "$HOME/.dotfiles/.tmux.conf" "$HOME/.tmux.conf"
+e_success "symlinked other stuff"
 
 # git
 symlink "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
