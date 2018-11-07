@@ -8,6 +8,8 @@
 
 1. Install [hyper.js](https://hyper.is/#installation)
 
+1. Install spaceship `npm install -g spaceship-prompt`
+
 1. Set your shell to zsh `sudo chsh -s $(which zsh)`
 
 1. Clone this repo: `git clone --recursive https://github.com/alfredbez/dotfiles.git ~/.dotfiles`
