@@ -29,6 +29,8 @@ fi
 RPROMPT='!%!'
 fpath=($fpath "/home/abez/.zfunctions")
 
+export TERM=xterm-256color
+
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
