@@ -1,0 +1,16 @@
+pane	0	0	:obo	0	:	0	:/home/abez/.dotfiles	0	vi	:vi .tmux.conf
+pane	0	0	:obo	0	:	1	:/home/abez/projects/ps/obo.local	1	zsh	:
+pane	0	1	:tremco	0	:-Z	0	:/home/abez/projects/ps/tremco-illbruck	0	zsh	:
+pane	0	1	:tremco	0	:-Z	1	:/home/abez/projects/ps/tremco-illbruck	0	zsh	:
+pane	0	1	:tremco	0	:-Z	2	:/home/abez/projects/ps/tremco-illbruck	0	bash	:bash /usr/bin/vagrant ssh
+pane	0	1	:tremco	0	:-Z	3	:/home/abez/projects/ps/tremco-illbruck	1	zsh	:
+pane	0	2	:b+m	0	:	0	:/home/abez/projects/ps/Bieber_und_Marburg	1	zsh	:
+pane	0	2	:b+m	0	:	1	:/home/abez/projects/ps/Bieber_und_Marburg	0	zsh	:
+pane	0	3	:oxvm	0	:	0	:/home/abez/projects/github/oxvm_eshop/oxideshop	1	zsh	:
+pane	0	4	:general	1	:*	0	:/home/abez/.dotfiles	1	vi	:vi .tmux.conf
+window	0	0	0	:	bb23,188x52,0,0{94x52,0,0,13,93x52,95,0,2}
+window	0	1	0	:-Z	7b7a,188x52,0,0{94x52,0,0[94x26,0,0,8,94x25,0,27,16],93x52,95,0[93x26,95,0,7,93x25,95,27,15]}
+window	0	2	0	:	5a3c,188x52,0,0{94x52,0,0,3,93x52,95,0,6}
+window	0	3	0	:	5d71,188x52,0,0,12
+window	0	4	1	:*	5d76,188x52,0,0,17
+state	0	
