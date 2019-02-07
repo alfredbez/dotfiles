@@ -302,6 +302,13 @@ function! BrowseDoc()
 endfunction
 map <F1> :call BrowseDoc()^M^M<CR>
 
+""""""""""""""""""
+" Git commit macro
+""""""""""""""""""
+let @c = 'jjjjyyggPvtPxf-;r:a '
+let @b = 'f-r '
+let @a = '10@b'
+
 """""""""""""""""""""""""
 " PHP Syntax Optimization
 """""""""""""""""""""""""
