@@ -21,6 +21,7 @@ syntax enable
 set background=dark
 colorscheme ego
 set t_Co=256
+set term=screen-256color
 
 """""""""""""""""""""""
 " Datei-Icons anzeigen
