@@ -14,6 +14,7 @@ alias ag='ag --pager="less -XFR"'
 alias phpstan='docker run -v $PWD:/app --rm phpstan/phpstan'
 alias tmux='tmux -2'
 alias cat='bat'
+alias vi='nvim'
 
 if [ $(uname -s) = "Linux" ]; then
     alias open="gnome-open"
