@@ -22,11 +22,6 @@ set background=dark
 colorscheme ego
 set t_Co=256
 
-"""""""""""""""""""""""
-" Datei-Icons anzeigen
-""""""""""""""""""""""""
-set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Mono.otf\ 11
-
 """"""""""""""""""""""""""""
 " highlight current line
 """"""""""""""""""""""""""""
@@ -190,10 +185,12 @@ autocmd BufWritePre <buffer> retab
 """""""""""""""""""""""
 " Airline Einstellungen
 """""""""""""""""""""""
-let g:airline_theme='powerlineish'
+let g:airline_theme='minimalist'
+let g:airline_powerline_fonts = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_section_z=''
+let g:airline_section_x=''
+let g:airline_section_y=''
 let g:airline#extensions#tabline#enabled = 1
 let airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
