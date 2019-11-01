@@ -5,7 +5,7 @@ HIST_STAMPS="dd.mm.yyyy"
 SAVEHIST=100000
 HISTSIZE=1000
 ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh-custom
-plugins=(git vagrant composer cp common-aliases sublime sudo z calc debian async zsh-syntax-highlighting git-flow-avh zsh-autosuggestions)
+plugins=(git vagrant composer cp common-aliases sublime sudo z debian async zsh-syntax-highlighting git-flow-avh zsh-autosuggestions)
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH=~/bin:$PATH
