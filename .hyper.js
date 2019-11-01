@@ -137,7 +137,6 @@ module.exports = {
     "hyper-search",
     "hyper-blink",
     "hyper-autohide-tabs",
-    "gitrocket",
     "hyperminimal"
   ],
 
