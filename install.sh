@@ -2,14 +2,21 @@
 
 # some helper functions, credits to Ben "cowboy" Alman
 # see https://github.com/cowboy/dotfiles/blob/master/bin/dotfiles#L26-L30
-function e_header()  { echo -e "\n\033[1m$@\033[0m"; }
-function e_success() { echo -e " \033[1;32m✔\033[0m  $@"; }
-function e_error()   { echo -e " \033[1;31m✖\033[0m  $@"; }
-function e_arrow()   { echo -e " \033[1;34m➜\033[0m  $@"; }
+function e_header()  { echo -e "\n\033[1m$*\033[0m"; }
+function e_success() { echo -e " \033[1;32m✔\033[0m  $*"; }
+function e_error()   { echo -e " \033[1;31m✖\033[0m  $*"; }
+function e_arrow()   { echo -e " \033[1;34m➜\033[0m  $*"; }
 
 function symlink() {
+    local dir_to_create
+    dir_to_create=$(dirname "${2}")
+    if [ ! -d "$dir_to_create" ]; then
+        e_error "directory $dir_to_create does not exist, let's create it"
+        mkdir -p "$dir_to_create"
+    fi
     if [ -h "$2" ]; then
-        local target="$(readlink -f ${2})"
+        local target
+        target=$(readlink -f "${2}")
         if [ "$1" == "$target" ]; then
             # don't create symlink if it exists and the target is the same
             return 0
@@ -17,23 +24,24 @@ function symlink() {
     fi
     if [ -f "$2" ]; then
         e_error "File ($2) already exists!"
-        local newname="$2.$(date +%s)"
+        local newname
+        newname=$2.$(date +%s)
         mv "$2" "$newname" && e_success "renamed to $newname"
     fi
     ln -s "$1" "$2"
 }
 
 # zsh
-if [ ! -d $HOME/.oh-my-zsh ]; then
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
     e_error "oh-my-zsh not found!"
     e_header "install it automatically..."
     git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
-    if [ -d $HOME/.oh-my-zsh ]; then
+    if [ -d "$HOME/.oh-my-zsh" ]; then
         e_success "installed oh-my-zsh"
     fi
 fi
 
-if [ -d $HOME/.oh-my-zsh ]; then
+if [ -d "$HOME/.oh-my-zsh" ]; then
     symlink "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
     e_success "created zsh symlinks"
 else
@@ -58,7 +66,7 @@ if [ "$(uname)" == "Darwin" ]; then
   symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(OSX).sublime-keymap" "$SUBLIME_TEXT_USER_PATH/Default (OSX).sublime-keymap"
   symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(OSX).sublime-mousemap" "$SUBLIME_TEXT_USER_PATH/Default (OSX).sublime-mousemap"
   e_success "configured sublime text (OSX)"
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+elif [ "$(uname -s | cut -c 1-5)" == "Linux" ]; then
     # Linux
   SUBLIME_TEXT_USER_PATH="$HOME/.config/sublime-text-3/Packages/User"
   symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(Linux).sublime-keymap" "$SUBLIME_TEXT_USER_PATH/Default (Linux).sublime-keymap"
@@ -85,9 +93,9 @@ e_success "symlinked other stuff"
 
 # git
 symlink "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
-git config --global core.excludesfile $HOME/.gitignore_global
+git config --global core.excludesfile "$HOME/.gitignore_global"
 symlink "$HOME/.dotfiles/.gitconfig.inc" "$HOME/.gitconfig.inc"
-git config --global include.path $HOME/.gitconfig.inc
+git config --global include.path "$HOME/.gitconfig.inc"
 e_success "configured git"
 e_arrow "reminder: set your git name and email like this: \
 \n\t git config --global user.email \"foo@bar.com\" \
