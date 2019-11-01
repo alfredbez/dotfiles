@@ -55,6 +55,7 @@ e_success "created hyper.js symlinks"
 # VIM stuff
 symlink "$HOME/.dotfiles/.vim" "$HOME/.vim"
 symlink "$HOME/.dotfiles/.vimrc" "$HOME/.vimrc"
+symlink "$HOME/.dotfiles/init.vim" "$HOME/.config/nvim/init.vim"
 e_success "created vim symlinks"
 
 # sublime-text
