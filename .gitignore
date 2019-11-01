@@ -1,3 +1,4 @@
 .netrwhist
 .vim/gutentags
 .tmux/resurrect
+.tmux/plugins/tmux*
