@@ -37,3 +37,4 @@ SPACESHIP_PHP_PREFIX="PHP-Version "
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
+fpath=($fpath "/home/abez/.zfunctions")

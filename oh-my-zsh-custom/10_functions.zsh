@@ -91,6 +91,26 @@ function agvim() {
     fi;
 }
 
+function gssvim() {
+    local gss_results=$(git status --short | grep -e '^[MAU]')
+    local gss_results_count=$(echo ${gss_results} | wc -l)
+    if [ ${gss_results_count} -lt 1 ]; then
+        echo "no changes found"
+    elif [ ${gss_results_count} -eq 1 ]; then
+        vim $(echo ${gss_results} | awk '{print $2}')
+    elif [ ${gss_results_count} -gt 1 ]; then
+        echo "${gss_results_count} files found, choose one:"
+        IFS=$'\n' results=($(echo ${gss_results}))
+        ITER=1
+        for i in "${results[@]}"; do
+            echo "\t[${ITER}]: ${i}"
+            let ITER=${ITER}+1
+        done
+        read fileIndex
+        vim $(echo ${results[$fileIndex]} | awk '{print $2}')
+    fi;
+}
+
 if [ -f ~/bin/functions.zsh ]; then
     source ~/bin/functions.zsh
 fi
