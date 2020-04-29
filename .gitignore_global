@@ -54,6 +54,7 @@ Vagrantfile.local
 .vagrant
 tags
 notes
+.phpunit.result.cache
 
 # Sublime Text #
 ################
@@ -61,6 +62,10 @@ notes
 *.sublime-workspace
 .phpstorm-oxid.meta.php
 stuff.TODO
+
+# PhpStorm #
+############
+.phpstorm.meta.php
 
 # OXID #
 ########
