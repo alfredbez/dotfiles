@@ -307,6 +307,8 @@ let @c = 'jjjjyyggPvtPxf-;r:a '
 let @b = 'f-r '
 let @a = '10@b'
 
+let g:ackprg = 'ag --vimgrep'
+
 """""""""""""""""""""""""
 " PHP Syntax Optimization
 """""""""""""""""""""""""
