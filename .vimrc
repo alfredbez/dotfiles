@@ -82,6 +82,8 @@ noremap <leader>0 :tablast<cr>
 " auto-close { and place cursor
 inoremap {<CR> {<CR>}<C-o>O
 
+map <Leader>1 :NERDTreeToggle<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " make YCM compatible with UltiSnips (using supertab)
 """""""""""""""""""""""""""""""""""""""""""""""""""""
