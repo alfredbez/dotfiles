@@ -54,8 +54,6 @@ let mapleader = "\<Space>"
 nnoremap <Leader>t <C-]>
 " Type <Space>q to close file
 nnoremap <Leader>q :q<CR>
-" Type <Enter> to write file
-map <Enter> :w<CR>
 " do not map <CR> in quickfix
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 " Type <Space>o to open a new file
@@ -83,6 +81,9 @@ noremap <leader>0 :tablast<cr>
 inoremap {<CR> {<CR>}<C-o>O
 
 map <Leader>1 :NERDTreeToggle<CR>
+noremap <leader>n :bn<cr>
+noremap <leader>N :bp<cr>
+noremap <leader>d :bd<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " make YCM compatible with UltiSnips (using supertab)
@@ -99,7 +100,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 """""""""""""""""""""""""""""""""""""""
 " edit vimrc with <leader>v
 """""""""""""""""""""""""""""""""""""""
-nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>v :tabedit ~/.vimrc<CR>
 
 """""""""""""""""""""""""""""
 " improved search and replace
