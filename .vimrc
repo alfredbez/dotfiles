@@ -143,7 +143,7 @@ set relativenumber
 set undofile
 set scrolloff=3
 set encoding=utf-8
-set colorcolumn=85
+set colorcolumn=120
 set pastetoggle=<F10>
 
 " F3: Toggle line numbers
