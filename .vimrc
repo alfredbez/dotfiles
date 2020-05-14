@@ -145,6 +145,8 @@ set scrolloff=3
 set encoding=utf-8
 set colorcolumn=120
 set pastetoggle=<F10>
+nmap <Leader>c :set colorcolumn=50<CR>
+nmap <Leader>C :set colorcolumn=120<CR>
 
 " F3: Toggle line numbers
 nnoremap <F3> :set rnu! nu!<CR>
