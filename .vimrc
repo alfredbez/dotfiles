@@ -1,12 +1,38 @@
 " This must be first, because it changes other options as side effect
 set nocp
 
-""""""""""""""""""""""""""
-" pathogen init
-""""""""""""""""""""""""""
-execute pathogen#infect()
 syntax on
 filetype plugin indent on
+
+" vim-plug
+call plug#begin('~/.vim/plugged')
+Plug 'hzchirs/vim-material'
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install --no-dev -o'}
+Plug 'mileszs/ack.vim'
+Plug 'dense-analysis/ale'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'preservim/nerdtree'
+Plug 'shawncplus/phpcomplete.vim'
+" Plug 'StanAngeloff/php.vim'
+" Plug 'Raimondi/delimitMate'
+Plug 'vim-vdebug/vdebug'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'embear/vim-localvimrc'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-repeat'
+Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'ryanoasis/vim-webdevicons'
+call plug#end()
+
+" phpactor settings
+let g:phpactorPhpBin = '~/.vim/plugged/phpactor/bin'
 
 """"""""""""""""""""""""""
 " use utf-8
@@ -61,8 +87,6 @@ nnoremap <Leader>o :CtrlP<CR>
 set wildignore+=*/node_modules/*
 set wildignore+=*/vendor/*
 set wildignore+=*/bower_components/*
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-nnoremap <C-d> :call pdv#DocumentWithSnip()<CR>
 " Enter visual line mode with <space><space>
 nmap <Leader><Leader> V
 " Go to tab by number
@@ -91,11 +115,6 @@ noremap <leader>d :bd<cr>
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 """""""""""""""""""""""""""""""""""""""
 " edit vimrc with <leader>v
