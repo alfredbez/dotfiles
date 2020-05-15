@@ -41,12 +41,13 @@ scriptencoding utf-8
 set encoding=utf-8
 
 """"""""""""""""""""""""""
-" solarized - Colorscheme
+" Colorscheme
 """"""""""""""""""""""""""
 syntax enable
 set background=dark
-colorscheme ego
 set t_Co=256
+set background=dark
+colorscheme vim-material
 
 """"""""""""""""""""""""""""
 " highlight current line
