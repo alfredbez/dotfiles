@@ -105,7 +105,6 @@ noremap <leader>0 :tablast<cr>
 " auto-close { and place cursor
 inoremap {<CR> {<CR>}<C-o>O
 
-map <Leader>1 :NERDTreeToggle<CR>
 noremap <leader>n :bn<cr>
 noremap <leader>N :bp<cr>
 noremap <leader>d :bd<cr>
@@ -176,9 +175,8 @@ nmap vs :vsplit<cr>
 nmap :sp :rightbelow sp<cr>
 
 " Nerdtree
-nmap <C-b> :NERDTreeToggle<cr>
-nmap <F6> :NERDTreeFind<cr>
-
+map <Leader>1 :NERDTreeToggle<CR>
+map <Leader>2 :NERDTreeFind<cr>
 
 " move betwwen splits
 nnoremap <C-j> <C-W><C-J>
