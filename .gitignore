@@ -2,3 +2,4 @@
 .vim/gutentags
 .tmux/resurrect
 .tmux/plugins/tmux*
+.vim/plugged
