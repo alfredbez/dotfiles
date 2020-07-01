@@ -90,6 +90,7 @@ symlink "$HOME/.dotfiles/.curlrc" "$HOME/.curlrc"
 symlink "$HOME/.dotfiles/.editorconfig" "$HOME/.editorconfig"
 symlink "$HOME/.dotfiles/.wgetrc" "$HOME/.wgetrc"
 symlink "$HOME/.dotfiles/.colordiffrc" "$HOME/.colordiffrc"
+symlink "$HOME/.dotfiles/.tmux" "$HOME/.tmux"
 symlink "$HOME/.dotfiles/.tmux.conf" "$HOME/.tmux.conf"
 e_success "symlinked other stuff"
 
