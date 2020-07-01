@@ -29,7 +29,16 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'ryanoasis/vim-webdevicons'
+Plug 'SirVer/ultisnips'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'floobits/floobits-neovim'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('ignore_sources', {'php': ['omni']})
 
 " phpactor settings
 let g:phpactorPhpBin = '~/.vim/plugged/phpactor/bin'
@@ -109,6 +118,13 @@ noremap <leader>n :bn<cr>
 noremap <leader>N :bp<cr>
 noremap <leader>d :bd<cr>
 
+nnoremap <leader>. :<C-u>call phpcd#JumpToDefinition('normal')<CR>
+map <C-r> :CtrlPBufTag<CR>
+map <C-e> :CtrlPBuffer<CR>
+
+nmap <silent> <leader>l <Plug>(ale_previous_wrap)
+nmap <silent> <leader>L <Plug>(ale_next_wrap)
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " make YCM compatible with UltiSnips (using supertab)
 """""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -163,9 +179,8 @@ set undofile
 set scrolloff=3
 set encoding=utf-8
 set colorcolumn=120
+autocmd FileType gitcommit set colorcolumn=50,72
 set pastetoggle=<F10>
-nmap <Leader>c :set colorcolumn=50<CR>
-nmap <Leader>C :set colorcolumn=120<CR>
 
 " F3: Toggle line numbers
 nnoremap <F3> :set rnu! nu!<CR>
@@ -268,7 +283,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:EditorConfig_exec_path = '/usr/bin/editorconfig'
 
 " Gutentags Settings
-let g:gutentags_exclude = ['*.css', '*.html', '*.js']
+let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js']
 let g:gutentags_cache_dir = '~/.vim/gutentags'
 
 """"""""""""""""""""
@@ -312,6 +327,7 @@ map <F1> :call BrowseDoc()^M^M<CR>
 let @c = 'jjjjyyggPvtPxf-;r:a '
 let @b = 'f-r '
 let @a = '10@b'
+
 
 let g:ackprg = 'ag --vimgrep'
 let g:localvimrc_ask = 0
