@@ -85,6 +85,7 @@ fi
 # other
 symlink "$HOME/.dotfiles/.ctags" "$HOME/.ctags"
 symlink "$HOME/.dotfiles/.ackrc" "$HOME/.ackrc"
+symlink "$HOME/.dotfiles/.ripgreprc" "$HOME/.ripgreprc"
 symlink "$HOME/.dotfiles/.curlrc" "$HOME/.curlrc"
 symlink "$HOME/.dotfiles/.editorconfig" "$HOME/.editorconfig"
 symlink "$HOME/.dotfiles/.wgetrc" "$HOME/.wgetrc"
