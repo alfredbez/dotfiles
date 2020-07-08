@@ -20,6 +20,7 @@ alias vif='vi $(fzf)'
 alias dc='docker-compose'
 alias dcmysql='docker-compose exec php bash -c "mysql -u$MYSQL_USER -p$MYSQL_PASSWORD -h db $MYSQL_DATABASE"'
 alias lg='lazygit'
+alias pu='vendor/bin/phpunit'
 
 if [ $(uname -s) = "Linux" ]; then
     alias open="gnome-open"
