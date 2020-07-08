@@ -33,7 +33,6 @@ Plug 'SirVer/ultisnips'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'floobits/floobits-neovim'
 Plug 'voldikss/vim-floaterm'
 call plug#end()
 
