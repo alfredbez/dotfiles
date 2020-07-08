@@ -19,3 +19,5 @@
     whitespace = red reverse
 [pager]
     diff = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
+[commit]
+    verbose = true
