@@ -71,3 +71,5 @@ stuff.TODO
 ########
 oxid-module-internals
 .phpcd
+.phpcd.vim
+.autoload.php
