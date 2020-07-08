@@ -15,7 +15,7 @@ export PATH="/snap/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
-export EDITOR='vim'
+export EDITOR='nvim'
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 if [ -d ~/.nvm ]; then
