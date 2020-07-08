@@ -2,6 +2,8 @@
     excludesfile = ~/.gitignore_global
     pager = diff-so-fancy | less --tabs=4 -RFX
     hooksPath = /home/abez/.dotfiles/global-git-hooks
+[alias]
+    l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [push]
     default = current
 [color]
@@ -22,3 +24,14 @@
     diff = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
 [commit]
     verbose = true
+[diff "minjs"]
+    textconv = js-beautify
+    cachetextconv = true
+[diff "mincss"]
+    textconv = js-beautify --css
+    cachetextconv = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
