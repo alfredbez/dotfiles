@@ -328,7 +328,7 @@ let @b = 'f-r '
 let @a = '10@b'
 
 
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'rg --vimgrep'
 let g:localvimrc_ask = 0
 
 let g:ale_php_phpcs_standard = 'PSR12'
