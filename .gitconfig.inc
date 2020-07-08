@@ -1,6 +1,7 @@
 [core]
     excludesfile = ~/.gitignore_global
     pager = diff-so-fancy | less --tabs=4 -RFX
+    hooksPath = /home/abez/.dotfiles/global-git-hooks
 [push]
     default = current
 [color]

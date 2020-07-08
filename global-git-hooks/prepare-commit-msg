@@ -1,0 +1,19 @@
+#!/bin/bash
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+
+# Only add custom message when there is no commit source
+# ($COMMIT_SOURCE is empty). Otherwise, keep the default message
+# proposed by Git. Possible commit source: message, template,
+# merge, squash or commit. See https://git-scm.com/docs/githooks
+if [[ -z "$COMMIT_SOURCE" ]]
+then
+  ref=$(git rev-parse --abbrev-ref HEAD)
+  if [[ $ref =~ ^([A-Z]+-[0-9]+)-(.*) ]]
+  then
+    hint="${BASH_REMATCH[2]^}"
+    ticket="${BASH_REMATCH[1]}"
+    hint=${hint//-/ } # a-b-c => a b c
+    echo "${ticket}: $hint" > "$COMMIT_MSG_FILE"
+  fi
+fi
