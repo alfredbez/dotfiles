@@ -34,6 +34,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'voldikss/vim-floaterm'
+Plug 'vim-test/vim-test'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
@@ -123,6 +124,9 @@ map <C-e> :CtrlPBuffer<CR>
 
 nmap <silent> <leader>l <Plug>(ale_previous_wrap)
 nmap <silent> <leader>L <Plug>(ale_next_wrap)
+
+nmap <silent> <leader>T :TestNearest<CR>
+nmap <silent> <leader>t :TestSuite<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " make YCM compatible with UltiSnips (using supertab)
@@ -335,6 +339,7 @@ let g:ale_php_phpcs_standard = 'PSR12'
 let g:vdebug_options = {
     \'break_on_open': 0
 \}
+let test#strategy = "neovim"
 """""""""""""""""""""""""
 " PHP Syntax Optimization
 """""""""""""""""""""""""
