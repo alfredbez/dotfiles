@@ -1,2 +1,14 @@
 --type-add
 tpl:*.tpl
+
+--max-columns=130
+--max-columns-preview
+
+#colors
+--colors=match:none
+--colors=match:bg:0x33,0x66,0xFF
+--colors=match:fg:white
+--colors=match:style:bold
+--colors=line:style:bold
+
+--smart-case
