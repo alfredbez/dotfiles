@@ -113,7 +113,7 @@ function gssvim() {
     if [ ${gss_results_count} -lt 1 ]; then
         echo "no changes found"
     elif [ ${gss_results_count} -eq 1 ]; then
-        vim $(echo ${gss_results} | awk '{print $2}')
+        nvim $(echo ${gss_results} | awk '{print $2}')
     elif [ ${gss_results_count} -gt 1 ]; then
         echo "${gss_results_count} files found, choose one:"
         IFS=$'\n' results=($(echo ${gss_results}))
@@ -123,7 +123,7 @@ function gssvim() {
             let ITER=${ITER}+1
         done
         read fileIndex
-        vim $(echo ${results[$fileIndex]} | awk '{print $2}')
+        nvim $(echo ${results[$fileIndex]} | awk '{print $2}')
     fi;
 }
 
