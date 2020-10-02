@@ -66,10 +66,11 @@ stuff.TODO
 # PhpStorm #
 ############
 .phpstorm.meta.php
+.run
 
 # OXID #
 ########
 oxid-module-internals
 .phpcd
 .phpcd.vim
-.autoload.php
+.vscode
