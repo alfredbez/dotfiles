@@ -195,6 +195,7 @@ nmap :sp :rightbelow sp<cr>
 " Nerdtree
 map <Leader>1 :NERDTreeToggle<CR>
 map <Leader>2 :NERDTreeFind<cr>
+let g:NERDTreeShowHidden=1
 
 " move betwwen splits
 nnoremap <C-j> <C-W><C-J>
