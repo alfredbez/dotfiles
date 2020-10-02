@@ -334,6 +334,7 @@ let @a = '10@b'
 
 
 let g:ackprg = 'rg --vimgrep'
+cnoreabbrev ag Gcd <bar> Ack!
 let g:localvimrc_ask = 0
 
 let g:ale_php_phpcs_standard = 'PSR12'
