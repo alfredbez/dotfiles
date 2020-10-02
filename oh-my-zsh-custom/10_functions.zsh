@@ -55,6 +55,13 @@ function json() {
     fi;
 }
 
+# let bash quote your string
+function bashquote () {
+    echo 'Enter your string and hit CTRL+d at the end'
+    printf '%q' "$(cat)"
+    echo
+}
+
 #
 #
 # `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
