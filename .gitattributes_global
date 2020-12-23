@@ -1,0 +1,4 @@
+*.min.js    diff=minjs
+*.min.css   diff=mincss
+*.php       diff=php
+*.md        diff=markdown
