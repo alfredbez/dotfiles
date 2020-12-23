@@ -1,7 +1,8 @@
 [core]
     excludesfile = ~/.gitignore_global
+    attributesfile = ~/.gitattributes_global
     pager = delta
-    hooksPath = /home/abez/.dotfiles/global-git-hooks
+    hooksPath = ~/.dotfiles/global-git-hooks
 [delta]
     navigate = true
     features = line-numbers decorations
@@ -21,6 +22,7 @@
     line-numbers-plus-style = 28
 [interactive]
     diffFilter = delta --color-only
+    #diffFilter = diff-so-fancy --patch
 [alias]
     l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [push]
