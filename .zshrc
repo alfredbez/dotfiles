@@ -31,6 +31,8 @@ RPROMPT='!%!'
 fpath=($fpath "/home/abez/.zfunctions")
 
 export TERM=xterm-256color
+export PHP_IDE_CONFIG="serverName=localhost"
+export XDEBUG_CONFIG="idekey=PHPSTORM"
 
 SPACESHIP_PHP_SYMBOL="🐘  "
 SPACESHIP_PHP_PREFIX="PHP-Version "
