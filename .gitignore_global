@@ -55,6 +55,7 @@ Vagrantfile.local
 tags
 notes
 .phpunit.result.cache
+.~lock.*#
 
 # Sublime Text #
 ################
