@@ -4,3 +4,17 @@ public function ${1:name}($2)
     ${3:// your code}
 }
 endsnippet
+
+snippet testClass
+<?php declare(strict_types=1);
+
+use PHPUnit\Framework\TestCase;
+
+class `!p snip.rv = snip.basename` extends TestCase
+{
+    public function test${1:Something}()
+    {
+        ${2:// your code}
+    }
+}
+endsnippet
