@@ -21,6 +21,10 @@ alias dc='docker-compose'
 alias dcmysql='docker-compose exec php bash -c "mysql -u$MYSQL_USER -p$MYSQL_PASSWORD -h db $MYSQL_DATABASE"'
 alias lg='lazygit'
 alias pu='vendor/bin/phpunit'
+alias stan='vendor/bin/phpstan analyze --memory-limit=2G'
+alias cs='vendor/bin/phpcs --standard=config/ruleset.xml'
+alias cbf='vendor/bin/phpcbf --standard=config/ruleset.xml'
+alias gs='gss'
 
 if [ $(uname -s) = "Linux" ]; then
     alias open="gnome-open"
