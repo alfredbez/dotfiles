@@ -54,3 +54,7 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+[alias]
+    set-upstream = \
+       !git branch \
+           --set-upstream-to=origin/`git symbolic-ref --short HEAD`
