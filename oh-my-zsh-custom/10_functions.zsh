@@ -127,6 +127,10 @@ function gssvim() {
     fi;
 }
 
+function gitchanged_php() {
+    git status | grep 'modified\|file:' | grep -e '\.php$' | awk -F: '{print $2}' | sort | uniq
+}
+
 if [ -f ~/bin/functions.zsh ]; then
     source ~/bin/functions.zsh
 fi
