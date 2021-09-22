@@ -76,7 +76,7 @@
 	"tab_completion": true,
 	"tab_size": 2,
 	"theme": "Material One Dark.sublime-theme",
-	"translate_tabs_to_spaces": false,
+	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"update_check": false,
 	"word_wrap": false,
