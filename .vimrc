@@ -35,6 +35,10 @@ Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'voldikss/vim-floaterm'
 Plug 'vim-test/vim-test'
+"Plug 'glepnir/spaceline.vim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'mattn/emmet-vim'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
