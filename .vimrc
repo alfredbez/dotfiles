@@ -40,6 +40,16 @@ call plug#end()
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('ignore_sources', {'php': ['omni']})
 
+let g:startify_custom_header = []
+let g:startify_lists = [
+        \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+        \ { 'type': 'files',     'header': ['   MRU']            },
+        \ { 'type': 'sessions',  'header': ['   Sessions']       },
+        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ { 'type': 'commands',  'header': ['   Commands']       },
+        \ ]
+let g:startify_enable_special = 0
+
 " phpactor settings
 let g:phpactorPhpBin = '~/.vim/plugged/phpactor/bin'
 
