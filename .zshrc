@@ -11,6 +11,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 export PATH=~/bin:$PATH
 export PATH=~/.config/composer/vendor/bin:$PATH
 export PATH="/snap/bin:$PATH"
+export PATH="/home/abez/.local/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
