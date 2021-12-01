@@ -12,6 +12,7 @@
 		"ChannelRepositoryTools",
 		"CodeFormatter",
 		"Composer",
+		"Cucumber",
 		"DocBlockr",
 		"Dotfiles Syntax Highlighting",
 		"EditorConfig",
