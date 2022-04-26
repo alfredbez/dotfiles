@@ -3,6 +3,8 @@
     attributesfile = ~/.gitattributes_global
     pager = delta
     hooksPath = ~/.dotfiles/global-git-hooks
+[merge]
+    conflictstyle = diff3
 [delta]
     navigate = true
     features = line-numbers decorations
