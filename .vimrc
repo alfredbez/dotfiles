@@ -7,16 +7,12 @@ filetype plugin indent on
 " vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'hzchirs/vim-material'
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install --no-dev -o'}
 Plug 'mileszs/ack.vim'
 Plug 'dense-analysis/ale'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'preservim/nerdtree'
-Plug 'shawncplus/phpcomplete.vim'
-" Plug 'StanAngeloff/php.vim'
 " Plug 'Raimondi/delimitMate'
-Plug 'vim-vdebug/vdebug'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
@@ -31,7 +27,16 @@ Plug 'tpope/vim-unimpaired'
 Plug 'ryanoasis/vim-webdevicons'
 Plug 'SirVer/ultisnips'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" PHP Plugins
+Plug 'StanAngeloff/php.vim'
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install --no-dev -o'}
+Plug 'vim-vdebug/vdebug'
+Plug 'dantleech/vim-phpnamespace'
+
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'voldikss/vim-floaterm'
 Plug 'vim-test/vim-test'
@@ -55,7 +60,8 @@ let g:startify_lists = [
 let g:startify_enable_special = 0
 
 " phpactor settings
-let g:phpactorPhpBin = '~/.vim/plugged/phpactor/bin'
+"let g:phpactorPhpBin = '~/.vim/plugged/phpactor/bin'
+let g:phpactorPhpBin = "/usr/bin/php7.4"
 
 """"""""""""""""""""""""""
 " use utf-8
@@ -79,6 +85,7 @@ set cursorline
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 highlight CursorLine cterm=none term=none guibg=#303000 ctermbg=black
+highlight Comment cterm=none term=none guibg=none ctermbg=none
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Centralize backups, swapfiles and undo history
@@ -132,7 +139,7 @@ noremap <leader>n :bn<cr>
 noremap <leader>N :bp<cr>
 noremap <leader>d :bd<cr>
 
-nnoremap <leader>. :<C-u>call phpcd#JumpToDefinition('normal')<CR>
+nnoremap <leader>. :<C-U>call phpcd#JumpToDefinition('normal')<CR>
 map <C-r> :CtrlPBufTag<CR>
 map <C-e> :CtrlPBuffer<CR>
 
