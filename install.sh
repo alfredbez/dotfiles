@@ -63,7 +63,7 @@ SUBLIME_TEXT_USER_PATH=""
 SUBLIME_TEXT_DOTFILES_PATH="$HOME/.dotfiles/sublime-text"
 if [ "$(uname)" == "Darwin" ]; then
   # OS X
-  SUBLIME_TEXT_USER_PATH="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+  SUBLIME_TEXT_USER_PATH="$HOME/Library/Application Support/Sublime Text/Packages/User"
   symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(OSX).sublime-keymap" "$SUBLIME_TEXT_USER_PATH/Default (OSX).sublime-keymap"
   symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(OSX).sublime-mousemap" "$SUBLIME_TEXT_USER_PATH/Default (OSX).sublime-mousemap"
   e_success "configured sublime text (OSX)"

@@ -49,6 +49,9 @@ call plug#end()
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('ignore_sources', {'php': ['omni']})
 
+
+let g:python3_host_prog = "/usr/bin/python3"
+
 let g:startify_custom_header = []
 let g:startify_lists = [
         \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },

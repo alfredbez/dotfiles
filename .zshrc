@@ -28,6 +28,10 @@ if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
 
+if [ -f ~/.zprofile ]; then
+    source ~/.zprofile
+fi
+
 RPROMPT='!%!'
 fpath=($fpath "/home/abez/.zfunctions")
 
@@ -39,7 +43,4 @@ export XDEBUG_CONFIG="idekey=PHPSTORM"
 SPACESHIP_PHP_SYMBOL="🐘  "
 SPACESHIP_PHP_PREFIX="PHP-Version "
 
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
-fpath=($fpath "/home/abez/.zfunctions")
+source /opt/homebrew/opt/spaceship/spaceship.zsh
