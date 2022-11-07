@@ -1,1 +1,3 @@
 set-option -g default-shell /bin/zsh
+
+bind-key -T copy-mode-vi Enter send -X copy-pipe-and-cancel 'reattach-to-user-namespace pbcopy'
