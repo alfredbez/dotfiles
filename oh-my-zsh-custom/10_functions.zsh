@@ -76,6 +76,10 @@ function is_ubuntu() {
   [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
 }
 
+function is_macos() {
+  [[ "$OSTYPE" == "darwin"* ]] || return 1
+}
+
 function sd () {
     echo "$1";
     svn diff --diff-cmd colordiff -x "-u -w -p" "$1" | less -NR;
