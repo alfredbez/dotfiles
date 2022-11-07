@@ -13,6 +13,10 @@ export PATH=~/.config/composer/vendor/bin:$PATH
 export PATH="/snap/bin:$PATH"
 export PATH="/home/abez/.local/bin:$PATH"
 
+if [ -f ~/.zprofile ]; then
+    source ~/.zprofile
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
@@ -28,10 +32,6 @@ if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
 
-if [ -f ~/.zprofile ]; then
-    source ~/.zprofile
-fi
-
 RPROMPT='!%!'
 fpath=($fpath "/home/abez/.zfunctions")
 
@@ -40,7 +40,4 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PHP_IDE_CONFIG="serverName=localhost"
 export XDEBUG_CONFIG="idekey=PHPSTORM"
 
-SPACESHIP_PHP_SYMBOL="🐘  "
-SPACESHIP_PHP_PREFIX="PHP-Version "
-
-source /opt/homebrew/opt/spaceship/spaceship.zsh
+source $(brew --prefix)/opt/spaceship/spaceship.zsh
