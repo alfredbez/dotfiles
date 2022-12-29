@@ -16,3 +16,6 @@
 [submodule ".tmux/plugins/tpm"]
     path = .tmux/plugins/tpm
     url = https://github.com/tmux-plugins/tpm
+[submodule "oh-my-zsh-custom/themes/spaceship-prompt"]
+	path = oh-my-zsh-custom/themes/spaceship-prompt
+	url = https://github.com/spaceship-prompt/spaceship-prompt
