@@ -6,7 +6,7 @@ filetype plugin indent on
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
-Plug 'hzchirs/vim-material'
+Plug 'hzchirs/vim-material', { 'tag': 'v1.0' }
 Plug 'mileszs/ack.vim'
 Plug 'dense-analysis/ale'
 Plug 'ctrlpvim/ctrlp.vim'
