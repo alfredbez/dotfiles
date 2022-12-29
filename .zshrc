@@ -5,6 +5,7 @@ HIST_STAMPS="dd.mm.yyyy"
 SAVEHIST=100000
 HISTSIZE=1000
 ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh-custom
+ZSH_THEME="spaceship"
 plugins=(git vagrant composer cp common-aliases sublime sudo z debian async zsh-syntax-highlighting git-flow-avh zsh-autosuggestions)
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
@@ -40,5 +41,3 @@ export TERM=xterm-256color
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PHP_IDE_CONFIG="serverName=localhost"
 export XDEBUG_CONFIG="idekey=PHPSTORM"
-
-source $(brew --prefix)/opt/spaceship/spaceship.zsh
