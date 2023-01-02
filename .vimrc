@@ -27,6 +27,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'ryanoasis/vim-webdevicons'
 Plug 'SirVer/ultisnips'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'dhruvasagar/vim-zoom'
 
 " PHP Plugins
 Plug 'StanAngeloff/php.vim'
@@ -217,6 +218,8 @@ nnoremap <C-j> <C-W><C-J>
 nnoremap <C-k> <C-W><C-K>
 nnoremap <C-l> <C-W><C-L>
 nnoremap <C-h> <C-W><C-H>
+" toogle zoom
+nmap <silent> <leader>z <Plug>(zoom-toggle)
 
 " Nerdtree
 map <Leader>1 :NERDTreeToggle<CR>
