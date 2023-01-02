@@ -8,6 +8,19 @@ ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh-custom
 ZSH_THEME="spaceship"
 plugins=(git vagrant composer cp common-aliases sublime sudo z debian async zsh-syntax-highlighting git-flow-avh zsh-autosuggestions)
 
+# This speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH=~/bin:$PATH
 export PATH=~/.config/composer/vendor/bin:$PATH
