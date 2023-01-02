@@ -123,17 +123,6 @@ set wildignore+=*/vendor/*
 set wildignore+=*/bower_components/*
 " Enter visual line mode with <space><space>
 nmap <Leader><Leader> V
-" Go to tab by number
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
 
 " auto-close { and place cursor
 inoremap {<CR> {<CR>}<C-o>O
@@ -145,6 +134,11 @@ noremap <leader>d :bd<cr>
 nnoremap <leader>. :<C-U>call phpcd#JumpToDefinition('normal')<CR>
 map <C-r> :CtrlPBufTag<CR>
 map <C-e> :CtrlPBuffer<CR>
+
+" scroll up and down, center the screen
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap n nzz
 
 nmap <silent> <leader>l <Plug>(ale_previous_wrap)
 nmap <silent> <leader>L <Plug>(ale_next_wrap)
@@ -212,20 +206,23 @@ set pastetoggle=<F10>
 " F3: Toggle line numbers
 nnoremap <F3> :set rnu! nu!<CR>
 
+""""""""
+" SPLITS
+""""""""
 " Open splits
 nmap vs :vsplit<cr>
 nmap :sp :rightbelow sp<cr>
+" move betwwen splits
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
 
 " Nerdtree
 map <Leader>1 :NERDTreeToggle<CR>
 map <Leader>2 :NERDTreeFind<cr>
 let g:NERDTreeShowHidden=1
 
-" move betwwen splits
-nnoremap <C-j> <C-W><C-J>
-nnoremap <C-k> <C-W><C-K>
-nnoremap <C-l> <C-W><C-L>
-nnoremap <C-h> <C-W><C-H>
 
 " Quickly go forward or backward to buffer
 nmap :bp :BufSurfBack<cr>
