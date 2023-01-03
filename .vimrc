@@ -43,13 +43,11 @@ Plug 'voldikss/vim-floaterm'
 Plug 'vim-test/vim-test'
 "Plug 'glepnir/spaceline.vim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'mattn/emmet-vim'
 Plug 'hashivim/vim-terraform'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('ignore_sources', {'php': ['omni']})
-
 
 let g:python3_host_prog = "/usr/bin/python3"
 
@@ -64,7 +62,6 @@ let g:startify_lists = [
 let g:startify_enable_special = 0
 
 " phpactor settings
-"let g:phpactorPhpBin = '~/.vim/plugged/phpactor/bin'
 let g:phpactorPhpBin = "/usr/bin/php7.4"
 
 """"""""""""""""""""""""""
@@ -128,10 +125,6 @@ nmap <Leader><Leader> V
 " auto-close { and place cursor
 inoremap {<CR> {<CR>}<C-o>O
 
-noremap <leader>n :bn<cr>
-noremap <leader>N :bp<cr>
-noremap <leader>d :bd<cr>
-
 nnoremap <leader>. :<C-U>call phpcd#JumpToDefinition('normal')<CR>
 map <C-r> :CtrlPBufTag<CR>
 map <C-e> :CtrlPBuffer<CR>
@@ -167,9 +160,6 @@ vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
 " search for visually selected text
 vnoremap // y/<C-R>"<CR>
 
-""""""""""""""""""""""""""
-" my config
-""""""""""""""""""""""""""
 set smarttab
 set tags=tags;/
 set softtabstop=4                           " when hitting <BS>, pretend like a tab is removed, even if spaces
@@ -199,13 +189,9 @@ set showcmd
 set relativenumber
 set undofile
 set scrolloff=3
-set encoding=utf-8
 set colorcolumn=120
 autocmd FileType gitcommit set colorcolumn=50,72
 set pastetoggle=<F10>
-
-" F3: Toggle line numbers
-nnoremap <F3> :set rnu! nu!<CR>
 
 """"""""
 " SPLITS
@@ -226,7 +212,6 @@ map <Leader>1 :NERDTreeToggle<CR>
 map <Leader>2 :NERDTreeFind<cr>
 let g:NERDTreeShowHidden=1
 
-
 " Quickly go forward or backward to buffer
 nmap :bp :BufSurfBack<cr>
 nmap :bn :BufSurfForward<cr>
@@ -235,11 +220,10 @@ noremap <leader>p :bp<cr>
 noremap <leader>d :bd<cr>
 noremap <leader>b :buffer
 
+" Search settings
 highlight Search cterm=underline
-
 autocmd cursorhold * set nohlsearch
 autocmd cursormoved * set hlsearch
-
 noremap <leader>h :noh<cr>
 
 " strip trailing whitespace
@@ -263,27 +247,6 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_nr_format = '%s: '
 
-""""""""""""""""
-" php-cs-fixer settings
-""""""""""""""""
-let g:php_cs_fixer_enable_default_mapping = 0
-nnoremap <silent><leader>f :w \| :silent call PhpCsFixerFixFile()<CR>
-
-""""""""""""""""""""""""""""""""""
-" php-refactoring-browser settings
-""""""""""""""""""""""""""""""""""
-let g:php_refactor_command='php ~/.dotfiles/submodules/refactor.phar'
-
-""""""""""""""""
-" text bubbling
-""""""""""""""""
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
-
 """"""""""""""""""""""""""""""""""""""""""""""
 " automatically jump to end of text you pasted
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -294,21 +257,7 @@ nnoremap <silent> p p`]
 "select pasted text
 noremap gV `[v`]
 
-" show tags
-nmap <F8> :TagbarToggle<CR>
-
-""""""""""""""""
-" emmet Settings
-""""""""""""""""
-let g:user_emmet_mode='a'    "enable all function in all mode.
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,scss EmmetInstall
-
-"""""""""""""""""""""""
-" EditorConfig Settings
-"""""""""""""""""""""""
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-let g:EditorConfig_exec_path = '/usr/bin/editorconfig'
 
 " Gutentags Settings
 let g:gutentags_cache_dir = '~/.vim/gutentags'
@@ -359,26 +308,6 @@ else
     \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
     \ }
 endif
-
-"""""""""""""""""""""""""""""""""
-" Vagrantfile Syntax Highlighting
-"""""""""""""""""""""""""""""""""
-augroup vagrant
-  au!
-  au BufRead,BufNewFile Vagrantfile,Vagrantfile.local set filetype=ruby
-augroup END
-
-" F1 opens documentation for php/perl function under cursor
-function! BrowseDoc()
-    if b:current_syntax == "php"
-        silent exec "!xdg-open 'http://php.net/manual-lookup.php?pattern=<cword>'"
-    elseif b:current_syntax == "perl"
-        ! xdg-open "http://perldoc.perl.org/search.html?q=<cword>"
-    else
-        return
-    endif
-endfunction
-map <F1> :call BrowseDoc()^M^M<CR>
 
 """"""""""""""""""
 " Git commit macro
