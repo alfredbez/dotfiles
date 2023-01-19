@@ -10,6 +10,8 @@ Plug 'hzchirs/vim-material', { 'tag': 'v1.0' }
 Plug 'mileszs/ack.vim'
 Plug 'dense-analysis/ale'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'preservim/nerdtree'
 " Plug 'Raimondi/delimitMate'
@@ -115,7 +117,7 @@ nnoremap <Leader>q :q<CR>
 " do not map <CR> in quickfix
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 " Type <Space>o to open a new file
-nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>o :Telescope find_files<CR>
 set wildignore+=*/node_modules/*
 set wildignore+=*/vendor/*
 set wildignore+=*/bower_components/*
