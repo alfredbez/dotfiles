@@ -128,6 +128,12 @@ nmap <Leader><Leader> V
 inoremap {<CR> {<CR>}<C-o>O
 
 nnoremap <leader>. :<C-U>call phpcd#JumpToDefinition('normal')<CR>
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
 map <C-r> :CtrlPBufTag<CR>
 map <C-e> :CtrlPBuffer<CR>
 
