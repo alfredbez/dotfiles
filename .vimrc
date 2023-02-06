@@ -39,6 +39,7 @@ Plug 'shawncplus/phpcomplete.vim'
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install --no-dev -o'}
 Plug 'vim-vdebug/vdebug'
 Plug 'dantleech/vim-phpnamespace'
+Plug 'fpob/nette.vim'
 
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'voldikss/vim-floaterm'
