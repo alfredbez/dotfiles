@@ -55,6 +55,8 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+[rerere]
+	enabled = true
 [alias]
     set-upstream = \
        !git branch \
