@@ -113,8 +113,8 @@ nnoremap <F4> :set list!<CR>
 """"""""""""""""""""""""""
 let mapleader = "\<Space>"
 nnoremap <Leader>t <C-]>
-" Type <Space>q to close file
-nnoremap <Leader>q :q<CR>
+" Type <Space>x to close file
+nnoremap <Leader>x :x<CR>
 " do not map <CR> in quickfix
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 " Type <Space>o to open a new file
@@ -225,9 +225,17 @@ let g:NERDTreeShowHidden=1
 nmap :bp :BufSurfBack<cr>
 nmap :bn :BufSurfForward<cr>
 noremap <leader>n :bn<cr>
-noremap <leader>p :bp<cr>
-noremap <leader>d :bd<cr>
+noremap <leader>N :bp<cr>
+noremap <leader>q :bd<cr>
 noremap <leader>b :buffer
+
+" delete without yanking
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" replace currently selected text with default register
+" without yanking it
+vnoremap <leader>p "_dP
 
 " Search settings
 highlight Search cterm=underline
