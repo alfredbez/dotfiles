@@ -21,7 +21,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'embear/vim-localvimrc'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-repeat'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
