@@ -2,6 +2,7 @@
     excludesfile = ~/.gitignore_global
     attributesfile = ~/.gitattributes_global
     pager = delta
+    ignorecase = false
 [merge]
     conflictstyle = diff3
 [delta]
@@ -28,6 +29,7 @@
     l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [push]
     default = current
+    autoSetupRemote = true
 [pull]
 	rebase = true
 [color]
@@ -59,6 +61,8 @@
     required = true
 [rerere]
 	enabled = true
+[protocol "file"]
+    allow = always
 [alias]
     set-upstream = \
        !git branch \
