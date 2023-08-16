@@ -28,7 +28,7 @@
     default = current
     autoSetupRemote = true
 [pull]
-	rebase = true
+    rebase = true
 [color]
     ui = true
 [color "diff-highlight"]
@@ -57,7 +57,7 @@
     process = git-lfs filter-process
     required = true
 [rerere]
-	enabled = true
+    enabled = true
 [protocol "file"]
     allow = always
 [alias]
