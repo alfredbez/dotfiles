@@ -19,7 +19,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lifepillar/vim-solarized8'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'embear/vim-localvimrc'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -34,7 +34,7 @@ Plug 'dhruvasagar/vim-zoom'
 
 " PHP Plugins
 Plug 'StanAngeloff/php.vim'
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+" Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install --no-dev -o'}
@@ -42,7 +42,7 @@ Plug 'vim-vdebug/vdebug'
 Plug 'dantleech/vim-phpnamespace'
 Plug 'fpob/nette.vim'
 
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 Plug 'voldikss/vim-floaterm'
 Plug 'vim-test/vim-test'
 "Plug 'glepnir/spaceline.vim'
