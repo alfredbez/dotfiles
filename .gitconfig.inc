@@ -7,11 +7,8 @@
     conflictstyle = diff3
 [delta]
     navigate = true
-    features = line-numbers decorations
-    #features = side-by-side line-numbers decorations
-    syntax-theme = Dracula
-    plus-style = syntax "#003800"
-    minus-style = syntax "#3f0001"
+    features = side-by-side line-numbers decorations
+    syntax-theme = "Solarized (light)"
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul
