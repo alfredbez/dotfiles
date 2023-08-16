@@ -17,6 +17,7 @@ Plug 'preservim/nerdtree'
 " Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'lifepillar/vim-solarized8'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -77,10 +78,8 @@ set encoding=utf-8
 " Colorscheme
 """"""""""""""""""""""""""
 syntax enable
-set background=dark
-set t_Co=256
-set background=dark
-colorscheme vim-material
+set background=light
+colorscheme solarized8
 
 """"""""""""""""""""""""""""
 " highlight current line
@@ -88,7 +87,6 @@ colorscheme vim-material
 set cursorline
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
-highlight CursorLine cterm=none term=none guibg=#303000 ctermbg=black
 highlight Comment cterm=none term=none guibg=none ctermbg=none
 
 """"""""""""""""""""""""""""""""""""""""""""""""
