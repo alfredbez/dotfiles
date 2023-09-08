@@ -34,7 +34,7 @@ Plug 'dhruvasagar/vim-zoom'
 
 " PHP Plugins
 Plug 'StanAngeloff/php.vim'
-" Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plug 'shawncplus/phpcomplete.vim'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install --no-dev -o'}
