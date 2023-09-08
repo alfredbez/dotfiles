@@ -31,6 +31,7 @@ Plug 'ryanoasis/vim-webdevicons'
 Plug 'SirVer/ultisnips'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'dhruvasagar/vim-zoom'
+Plug 'neovim/nvim-lspconfig'
 
 " PHP Plugins
 Plug 'StanAngeloff/php.vim'
