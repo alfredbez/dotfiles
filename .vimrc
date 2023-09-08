@@ -65,6 +65,15 @@ let g:startify_lists = [
         \ ]
 let g:startify_enable_special = 0
 
+lua << EOF
+require('telescope').setup{
+  pickers = {
+    find_files = {
+      hidden = true
+    }
+  }
+}
+EOF
 " phpactor settings
 let g:phpactorPhpBin = "/usr/bin/php7.4"
 
