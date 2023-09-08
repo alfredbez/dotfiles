@@ -6,6 +6,7 @@ SAVEHIST=100000
 HISTSIZE=1000
 ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh-custom
 ZSH_THEME="spaceship"
+BAT_THEME="Solarized (light)"
 plugins=(git composer cp common-aliases sublime sudo z debian zsh-syntax-highlighting zsh-autosuggestions)
 
 # This speeds up pasting w/ autosuggest
