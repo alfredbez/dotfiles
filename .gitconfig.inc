@@ -3,12 +3,27 @@
     attributesfile = ~/.gitattributes_global
     pager = delta
     ignorecase = false
+	untrackedCache = true
+	fsmonitor = true
+[help]
+    autocorrect = 10
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
+[rebase]
+	instructionFormat = (%an <%ae>) %s
+    autosquash = true
+[fetch]
+	writeCommitGraph = true
+    fsckobjects = true
+[transfer]
+    fsckObjects = true
+[receive]
+    fsckObjects = true
 [delta]
     navigate = true
-    features = side-by-side line-numbers decorations
-    syntax-theme = "Solarized (light)"
+    #features = side-by-side line-numbers decorations
+    features = line-numbers decorations
+    syntax-theme = "Catppuccin-mocha"
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul
@@ -21,7 +36,6 @@
     line-numbers-plus-style = 28
 [interactive]
     diffFilter = delta --color-only
-    #diffFilter = diff-so-fancy --patch
 [alias]
     l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [push]
@@ -43,8 +57,11 @@
     old = red bold
     new = green bold
     whitespace = red reverse
+    #diffFilter = diff-so-fancy --patch
 [commit]
     verbose = true
+[diff]
+    algorithm = histogram
 [diff "minjs"]
     textconv = js-beautify
     cachetextconv = true
