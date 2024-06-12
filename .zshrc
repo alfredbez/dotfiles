@@ -28,6 +28,7 @@ export PATH=~/.config/composer/vendor/bin:$PATH
 export PATH=~/.composer/vendor/bin:$PATH
 export PATH="/snap/bin:$PATH"
 export PATH="/home/abez/.local/bin:$PATH"
+export PATH="/Users/bez/.local/bin:$PATH"
 
 if [ -f ~/.zprofile ]; then
     source ~/.zprofile
@@ -50,8 +51,14 @@ fi
 
 RPROMPT='!%!'
 fpath=($fpath "/home/abez/.zfunctions")
+eval "$(mcfly init zsh)"
 
-export TERM=xterm-256color
+export TERM=screen-256color
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PHP_IDE_CONFIG="serverName=localhost"
 export XDEBUG_CONFIG="idekey=PHPSTORM"
+export FZF_DEFAULT_COMMAND='fd -L -I -t f -t l'
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
