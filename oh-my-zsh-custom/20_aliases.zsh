@@ -27,6 +27,7 @@ alias gs='gss'
 alias gbb='git --no-pager branch --sort=-committerdate | head'
 alias ls='lsd'
 alias gcho='git -c core.hooksPath=/dev/null checkout'
+alias ds='docker/sdk'
 
 if [ $(uname -s) = "Linux" ]; then
     alias open="gnome-open"
