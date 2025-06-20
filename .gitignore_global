@@ -77,3 +77,4 @@ oxid-module-internals
 .phpcd
 .phpcd.vim
 .vscode
+.claude/settings.local.json
