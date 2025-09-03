@@ -53,7 +53,6 @@ RPROMPT='!%!'
 fpath=($fpath "/home/abez/.zfunctions")
 eval "$(mcfly init zsh)"
 
-export TERM=screen-256color
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PHP_IDE_CONFIG="serverName=localhost"
 export XDEBUG_CONFIG="idekey=PHPSTORM"
