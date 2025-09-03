@@ -1,3 +1,4 @@
+export DISABLE_AUTO_TITLE=true
 export ZSH=$HOME/.oh-my-zsh
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
