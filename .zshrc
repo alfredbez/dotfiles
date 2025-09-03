@@ -51,7 +51,7 @@ if [ -f ~/.zshrc.local ]; then
 fi
 
 RPROMPT='!%!'
-fpath=($fpath "/home/abez/.zfunctions")
+[ -d "/home/abez/.zfunctions" ] && fpath=($fpath "/home/abez/.zfunctions")
 eval "$(mcfly init zsh)"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
