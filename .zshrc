@@ -28,8 +28,7 @@ export PATH=~/bin:$PATH
 export PATH=~/.config/composer/vendor/bin:$PATH
 export PATH=~/.composer/vendor/bin:$PATH
 export PATH="/snap/bin:$PATH"
-export PATH="/home/abez/.local/bin:$PATH"
-export PATH="/Users/bez/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 if [ -f ~/.zprofile ]; then
     source ~/.zprofile
