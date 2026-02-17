@@ -58,7 +58,3 @@ export FZF_DEFAULT_COMMAND='fd -L -I -t f -t l'
 # Go configuration
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
-
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
