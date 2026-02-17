@@ -40,10 +40,7 @@ export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
-if [ -d ~/.nvm ]; then
-    source ~/.nvm/nvm.sh
-    nvm use stable > /dev/null 2>&1
-fi
+eval "$(fnm env --use-on-cd)"
 
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
@@ -65,4 +62,3 @@ export PATH="$GOPATH/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
