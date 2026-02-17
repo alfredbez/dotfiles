@@ -1,4 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# Re-exec under bash if invoked from zsh, sh, or another non-bash shell.
+if [ -z "${BASH_VERSION:-}" ]; then
+    if command -v bash >/dev/null 2>&1; then
+        exec bash "$0" "$@"
+    elif [ -x /bin/bash ]; then
+        exec /bin/bash "$0" "$@"
+    else
+        echo "Error: bash is required to run this installer." >&2
+        exit 1
+    fi
+fi
 
 # some helper functions, credits to Ben "cowboy" Alman
 # see https://github.com/cowboy/dotfiles/blob/master/bin/dotfiles#L26-L30
@@ -8,34 +20,36 @@ function e_error()   { echo -e " \033[1;31m✖\033[0m  $*"; }
 function e_arrow()   { echo -e " \033[1;34m➜\033[0m  $*"; }
 
 function symlink() {
+    local src="$1"
+    local dest="$2"
     local dir_to_create
-    dir_to_create=$(dirname "${2}")
+    dir_to_create=$(dirname "$dest")
     if [ ! -d "$dir_to_create" ]; then
         e_error "directory $dir_to_create does not exist, let's create it"
         mkdir -p "$dir_to_create"
     fi
-    if [ -h "$2" ]; then
+    if [ -h "$dest" ]; then
         local target
-        target=$(readlink -f "${2}")
-        if [ "$1" == "$target" ]; then
+        target=$(readlink "$dest")
+        if [ "$src" = "$target" ]; then
             # don't create symlink if it exists and the target is the same
             return 0
         fi
-    fi
-    if [ -f "$2" ]; then
-        e_error "File ($2) already exists!"
+        rm -f "$dest"
+    elif [ -f "$dest" ] || [ -d "$dest" ]; then
+        e_error "File ($dest) already exists!"
         local newname
-        newname=$2.$(date +%s)
-        mv "$2" "$newname" && e_success "renamed to $newname"
+        newname=$dest.$(date +%s)
+        mv "$dest" "$newname" && e_success "renamed to $newname"
     fi
-    ln -s "$1" "$2"
+    ln -s "$src" "$dest"
 }
 
 # zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     e_error "oh-my-zsh not found!"
     e_header "install it automatically..."
-    git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
+    git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
     if [ -d "$HOME/.oh-my-zsh" ]; then
         e_success "installed oh-my-zsh"
     fi
@@ -45,7 +59,7 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     symlink "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
     e_success "created zsh symlinks"
 else
-    e_error "something gone wrong, you need to install oh-my-zsh on manually"
+    e_error "something gone wrong, you need to install oh-my-zsh manually"
 fi
 
 # hyperterm stuff
@@ -61,21 +75,22 @@ e_success "created vim symlinks"
 # sublime-text
 SUBLIME_TEXT_USER_PATH=""
 SUBLIME_TEXT_DOTFILES_PATH="$HOME/.dotfiles/sublime-text"
-if [ "$(uname)" == "Darwin" ]; then
-  # OS X
-  SUBLIME_TEXT_USER_PATH="$HOME/Library/Application Support/Sublime Text/Packages/User"
-  symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(OSX).sublime-keymap" "$SUBLIME_TEXT_USER_PATH/Default (OSX).sublime-keymap"
-  symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(OSX).sublime-mousemap" "$SUBLIME_TEXT_USER_PATH/Default (OSX).sublime-mousemap"
-  e_success "configured sublime text (OSX)"
-elif [ "$(uname -s | cut -c 1-5)" == "Linux" ]; then
-    # Linux
-  SUBLIME_TEXT_USER_PATH="$HOME/.config/sublime-text-3/Packages/User"
-  symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(Linux).sublime-keymap" "$SUBLIME_TEXT_USER_PATH/Default (Linux).sublime-keymap"
-  symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(Linux).sublime-mousemap" "$SUBLIME_TEXT_USER_PATH/Default (Linux).sublime-mousemap"
-  e_success "configured sublime text (Linux)"
-fi
+case "$(uname -s)" in
+  Darwin)
+    SUBLIME_TEXT_USER_PATH="$HOME/Library/Application Support/Sublime Text/Packages/User"
+    symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(OSX).sublime-keymap" "$SUBLIME_TEXT_USER_PATH/Default (OSX).sublime-keymap"
+    symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(OSX).sublime-mousemap" "$SUBLIME_TEXT_USER_PATH/Default (OSX).sublime-mousemap"
+    e_success "configured sublime text (OSX)"
+    ;;
+  Linux)
+    SUBLIME_TEXT_USER_PATH="$HOME/.config/sublime-text-3/Packages/User"
+    symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(Linux).sublime-keymap" "$SUBLIME_TEXT_USER_PATH/Default (Linux).sublime-keymap"
+    symlink "$SUBLIME_TEXT_DOTFILES_PATH/Default_(Linux).sublime-mousemap" "$SUBLIME_TEXT_USER_PATH/Default (Linux).sublime-mousemap"
+    e_success "configured sublime text (Linux)"
+    ;;
+esac
 
-if [ ! "$SUBLIME_TEXT_USER_PATH" == "" ]; then
+if [ -n "$SUBLIME_TEXT_USER_PATH" ]; then
     symlink "$SUBLIME_TEXT_DOTFILES_PATH/Preferences.sublime-settings" "$SUBLIME_TEXT_USER_PATH/Preferences.sublime-settings"
     symlink "$SUBLIME_TEXT_DOTFILES_PATH/phpcs.sublime-settings" "$SUBLIME_TEXT_USER_PATH/phpcs.sublime-settings"
     symlink "$SUBLIME_TEXT_DOTFILES_PATH/Snippets" "$SUBLIME_TEXT_USER_PATH/Snippets"
@@ -105,4 +120,3 @@ e_success "configured git"
 e_arrow "reminder: set your git name and email like this: \
 \n\t git config --global user.email \"foo@bar.com\" \
 \n\t git config --global user.name \"Foo Bar\""
-
