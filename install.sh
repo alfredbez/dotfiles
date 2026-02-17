@@ -19,6 +19,31 @@ function e_success() { echo -e " \033[1;32m✔\033[0m  $*"; }
 function e_error()   { echo -e " \033[1;31m✖\033[0m  $*"; }
 function e_arrow()   { echo -e " \033[1;34m➜\033[0m  $*"; }
 
+DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# prerequisites
+e_header "Checking prerequisites..."
+
+if ! command -v zsh >/dev/null 2>&1; then
+    e_error "zsh is not installed!"
+    e_arrow "install it with: sudo apt-get install zsh (Linux) or brew install zsh (macOS)"
+    exit 1
+fi
+e_success "zsh is installed"
+
+if [ "$(basename "$SHELL")" != "zsh" ]; then
+    e_arrow "zsh is not your default shell, change it with: chsh -s $(which zsh)"
+fi
+
+if git -C "$DOTFILES_DIR" submodule status | grep -q '^-'; then
+    e_error "git submodules not initialized (forgot --recursive?)"
+    e_header "initializing submodules..."
+    git -C "$DOTFILES_DIR" submodule update --init --recursive
+    e_success "submodules initialized"
+else
+    e_success "git submodules OK"
+fi
+
 function symlink() {
     local src="$1"
     local dest="$2"
