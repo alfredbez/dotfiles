@@ -23,7 +23,7 @@
     navigate = true
     #features = side-by-side line-numbers decorations
     features = line-numbers decorations
-    syntax-theme = "Catppuccin-mocha"
+    syntax-theme = "Catppuccin Mocha"
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul
