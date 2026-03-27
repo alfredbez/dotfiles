@@ -58,3 +58,6 @@ export FZF_DEFAULT_COMMAND='fd -L -I -t f -t l'
 # Go configuration
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+
+# opencode
+export PATH=/Users/beza/.opencode/bin:$PATH
