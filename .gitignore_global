@@ -78,3 +78,4 @@ oxid-module-internals
 .phpcd.vim
 .vscode
 .claude/settings.local.json
+.mise.local.toml
