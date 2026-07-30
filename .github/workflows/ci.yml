@@ -6,30 +6,147 @@ on:
   pull_request:
     branches: [master]
 
-jobs:
-  shellcheck:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: ShellCheck
-        run: shellcheck install.sh
+permissions:
+  contents: read
 
-  e2e-happy:
+jobs:
+  static:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Install syntax-check dependencies
+        run: sudo apt-get update && sudo apt-get install -y zsh
+
+      - name: Check shell scripts
+        run: |
+          shellcheck install.sh .githooks/pre-commit
+          bash -n install.sh
+          zsh -n .zshrc oh-my-zsh-custom/10_functions.zsh oh-my-zsh-custom/20_aliases.zsh
+
+      - name: Check JSON files
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          for path in (
+              Path("nvim/.neoconf.json"),
+              Path("nvim/lazy-lock.json"),
+              Path("nvim/lazyvim.json"),
+          ):
+              json.loads(path.read_text())
+          PY
+
+      - name: Check GitHub Actions workflow
+        run: go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12
+
+      - uses: JohnnyMorganz/stylua-action@479972f01e665acfcba96ada452c36608bdbbb5e # v4
+        with:
+          version: v2.5.2
+          args: --check nvim
+
+  installer:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - mode: recursive checkout
+            submodules: recursive
+          - mode: installer initializes submodules
+            submodules: "false"
+    name: Installer (${{ matrix.mode }})
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          submodules: ${{ matrix.submodules }}
+
+      - name: Install zsh
+        run: sudo apt-get update && sudo apt-get install -y zsh
+
+      - name: Run installer twice and verify links
+        env:
+          TEST_HOME: ${{ runner.temp }}/home
+        run: |
+          mkdir -p "$TEST_HOME/.oh-my-zsh"
+          touch "$TEST_HOME/.oh-my-zsh/oh-my-zsh.sh"
+          HOME="$TEST_HOME" SHELL=/usr/bin/zsh ./install.sh
+          HOME="$TEST_HOME" SHELL=/usr/bin/zsh ./install.sh
+
+          assert_link() {
+            destination="$1"
+            source="$2"
+            test -L "$destination"
+            test -e "$destination"
+            test "$(readlink "$destination")" = "$source"
+          }
+
+          assert_link "$TEST_HOME/.zshrc" "$GITHUB_WORKSPACE/.zshrc"
+          assert_link "$TEST_HOME/.config/nvim" "$GITHUB_WORKSPACE/nvim"
+          assert_link "$TEST_HOME/.config/herdr/config.toml" "$GITHUB_WORKSPACE/herdr/config.toml"
+          assert_link "$TEST_HOME/.tmux.conf" "$GITHUB_WORKSPACE/.tmux.conf"
+          assert_link "$TEST_HOME/.gitconfig.inc" "$GITHUB_WORKSPACE/.gitconfig.inc"
+          test "$(git config --local core.hooksPath)" = ".githooks"
+          test "$(HOME="$TEST_HOME" zsh -c 'fnm() { :; }; mcfly() { :; }; source "$HOME/.zshrc"; print -r -- "$ZSH_CUSTOM"')" = "$GITHUB_WORKSPACE/oh-my-zsh-custom"
+
+          if git submodule status --recursive | grep -Eq '^[+-U]'; then
+            git submodule status --recursive
+            exit 1
+          fi
+
+          dangling="$(find "$TEST_HOME" -type l ! -exec test -e {} \; -print -quit)"
+          test -z "$dangling"
+
+  configs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           submodules: recursive
-      - name: Install zsh
-        run: sudo apt-get update && sudo apt-get install -y zsh
-      - name: Run installer
-        run: ./install.sh
 
-  e2e-no-recursive:
+      - name: Validate tmux config
+        run: |
+          sudo apt-get update && sudo apt-get install -y tmux xclip
+          ln -s "$GITHUB_WORKSPACE/.tmux" "$HOME/.tmux"
+          ln -s "$GITHUB_WORKSPACE/.tmux.conf" "$HOME/.tmux.conf"
+          ln -s "$GITHUB_WORKSPACE/.tmux-linux" "$HOME/.tmux-linux"
+          ln -s "$GITHUB_WORKSPACE/.tmux-mac" "$HOME/.tmux-mac"
+
+          socket="dotfiles-ci-$$"
+          trap 'tmux -L "$socket" kill-server >/dev/null 2>&1 || true' EXIT
+          tmux -L "$socket" -f /dev/null new-session -d -s validate
+          tmux -L "$socket" source-file "$HOME/.tmux.conf"
+          test "$(tmux -L "$socket" show-options -gv mouse)" = "on"
+
+      - name: Validate Herdr config
+        env:
+          HERDR_VERSION: 0.7.5
+          HERDR_SHA256: 3dc83288073e4c2d3c679a30e7be97bcca9141c6fd17dbbb9219142e95c59253
+        run: |
+          curl --fail --location --silent --show-error \
+            --output "$RUNNER_TEMP/herdr" \
+            "https://github.com/herdrdev/herdr/releases/download/v${HERDR_VERSION}/herdr-linux-x86_64"
+          echo "$HERDR_SHA256  $RUNNER_TEMP/herdr" | sha256sum --check
+          chmod +x "$RUNNER_TEMP/herdr"
+          HERDR_CONFIG_PATH="$GITHUB_WORKSPACE/herdr/config.toml" "$RUNNER_TEMP/herdr" config check
+
+  secrets:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install zsh
-        run: sudo apt-get update && sudo apt-get install -y zsh
-      - name: Run installer (should auto-init submodules)
-        run: ./install.sh
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan Git history for secrets
+        env:
+          GITLEAKS_VERSION: 8.30.1
+          GITLEAKS_SHA256: 551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb
+        run: |
+          archive="$RUNNER_TEMP/gitleaks.tar.gz"
+          curl --fail --location --silent --show-error \
+            --output "$archive" \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          echo "$GITLEAKS_SHA256  $archive" | sha256sum --check
+          tar -xzf "$archive" -C "$RUNNER_TEMP" gitleaks
+          "$RUNNER_TEMP/gitleaks" git --redact --verbose .

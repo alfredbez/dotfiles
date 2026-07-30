@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+set -eu
+
+case ",${SKIP:-}," in
+    *,gitleaks,*) exit 0 ;;
+esac
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+    echo "gitleaks is required; install it with 'brew install gitleaks'" >&2
+    exit 1
+fi
+
+exec gitleaks git --pre-commit --redact --staged --verbose

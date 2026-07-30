@@ -142,6 +142,7 @@ symlink "$DOTFILES_DIR/.gitignore_global" "$HOME/.gitignore_global"
 symlink "$DOTFILES_DIR/.gitconfig.inc" "$HOME/.gitconfig.inc"
 git config --global include.path "$HOME/.gitconfig.inc"
 symlink "$DOTFILES_DIR/.gitattributes_global" "$HOME/.gitattributes_global"
+git -C "$DOTFILES_DIR" config core.hooksPath .githooks
 e_success "configured git"
 e_arrow "reminder: set your git name and email like this: \
 \n\t git config --global user.email \"foo@bar.com\" \
