@@ -134,6 +134,7 @@ symlink "$HOME/.dotfiles/.tmux" "$HOME/.tmux"
 symlink "$HOME/.dotfiles/.tmux.conf" "$HOME/.tmux.conf"
 symlink "$HOME/.dotfiles/.tmux-mac" "$HOME/.tmux-mac"
 symlink "$HOME/.dotfiles/.tmux-linux" "$HOME/.tmux-linux"
+symlink "$HOME/.dotfiles/herdr/config.toml" "$HOME/.config/herdr/config.toml"
 e_success "symlinked other stuff"
 
 # git

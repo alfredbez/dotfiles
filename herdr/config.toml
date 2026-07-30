@@ -1,0 +1,41 @@
+[keys]
+# Keep the tmux prefix and the bindings from ~/.tmux.conf.
+prefix = "ctrl+b"
+detach = ["prefix+d", "prefix+q"]
+copy_mode = "prefix+y"
+edit_scrollback = "prefix+e"
+split_horizontal = "prefix+minus"
+split_vertical = ["prefix+shift+minus", "prefix+v"]
+
+# Cycle through workspaces and agents without opening a picker.
+previous_workspace = "prefix+shift+left"
+next_workspace = "prefix+shift+right"
+previous_agent = "prefix+shift+up"
+next_agent = "prefix+shift+down"
+
+# tmux's default arrow-key pane navigation; keep Herdr's h/j/l variants too.
+# prefix+k is reserved below for the tmux `kill-pane -a` equivalent.
+focus_pane_left = ["prefix+h", "prefix+left"]
+focus_pane_down = ["prefix+j", "prefix+down"]
+focus_pane_up = "prefix+up"
+focus_pane_right = ["prefix+l", "prefix+right"]
+rename_tab = ["prefix+comma", "prefix+shift+t"]
+# Free prefix+P for the clipboard binding below.
+rename_pane = ""
+
+[[keys.command]]
+key = "prefix+shift+p"
+type = "shell"
+command = 'text="$(pbpaste)"; "$HERDR_BIN_PATH" pane send-text "$HERDR_ACTIVE_PANE_ID" "$text"'
+description = "paste macOS clipboard (tmux prefix+P)"
+
+[[keys.command]]
+key = "prefix+k"
+type = "shell"
+command = '''
+"$HERDR_BIN_PATH" pane list | jq -r --arg tab "$HERDR_ACTIVE_TAB_ID" --arg pane "$HERDR_ACTIVE_PANE_ID" '.result.panes[] | select(.tab_id == $tab and .pane_id != $pane) | .pane_id' | while IFS= read -r pane; do "$HERDR_BIN_PATH" pane close "$pane"; done
+'''
+description = "close all other panes in this tab (tmux kill-pane -a)"
+
+[ui]
+agent_panel_sort = "spaces"
