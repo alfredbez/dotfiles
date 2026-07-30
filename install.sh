@@ -12,6 +12,8 @@ if [ -z "${BASH_VERSION:-}" ]; then
     fi
 fi
 
+set -e
+
 # some helper functions, credits to Ben "cowboy" Alman
 # see https://github.com/cowboy/dotfiles/blob/master/bin/dotfiles#L26-L30
 function e_header()  { echo -e "\n\033[1m$*\033[0m"; }
@@ -35,19 +37,18 @@ if [ "$(basename "$SHELL")" != "zsh" ]; then
     e_arrow "zsh is not your default shell, change it with: chsh -s $(which zsh)"
 fi
 
-if git -C "$DOTFILES_DIR" submodule status | grep -q '^-'; then
-    e_error "git submodules not initialized (forgot --recursive?)"
-    e_header "initializing submodules..."
-    git -C "$DOTFILES_DIR" submodule update --init --recursive
-    e_success "submodules initialized"
-else
-    e_success "git submodules OK"
-fi
+e_header "Initializing submodules..."
+git -C "$DOTFILES_DIR" submodule update --init --recursive
+e_success "submodules initialized"
 
 function symlink() {
     local src="$1"
     local dest="$2"
     local dir_to_create
+    if [ ! -e "$src" ]; then
+        e_error "Symlink source ($src) does not exist!"
+        return 1
+    fi
     dir_to_create=$(dirname "$dest")
     if [ ! -d "$dir_to_create" ]; then
         e_error "directory $dir_to_create does not exist, let's create it"
@@ -81,25 +82,24 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 if [ -d "$HOME/.oh-my-zsh" ]; then
-    symlink "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
+    symlink "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
     e_success "created zsh symlinks"
 else
     e_error "something gone wrong, you need to install oh-my-zsh manually"
 fi
 
 # hyperterm stuff
-symlink "$HOME/.dotfiles/.hyper.js" "$HOME/.hyper.js"
+symlink "$DOTFILES_DIR/.hyper.js" "$HOME/.hyper.js"
 e_success "created hyper.js symlinks"
 
 # VIM stuff
-symlink "$HOME/.dotfiles/.vim" "$HOME/.vim"
-symlink "$HOME/.dotfiles/.vimrc" "$HOME/.vimrc"
-symlink "$HOME/.dotfiles/nvim" "$HOME/.config/nvim"
+symlink "$DOTFILES_DIR/.vim" "$HOME/.vim"
+symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 e_success "created vim symlinks"
 
 # sublime-text
 SUBLIME_TEXT_USER_PATH=""
-SUBLIME_TEXT_DOTFILES_PATH="$HOME/.dotfiles/sublime-text"
+SUBLIME_TEXT_DOTFILES_PATH="$DOTFILES_DIR/sublime-text"
 case "$(uname -s)" in
   Darwin)
     SUBLIME_TEXT_USER_PATH="$HOME/Library/Application Support/Sublime Text/Packages/User"
@@ -123,25 +123,25 @@ if [ -n "$SUBLIME_TEXT_USER_PATH" ]; then
 fi
 
 # other
-symlink "$HOME/.dotfiles/.ctags" "$HOME/.ctags"
-symlink "$HOME/.dotfiles/.ackrc" "$HOME/.ackrc"
-symlink "$HOME/.dotfiles/.ripgreprc" "$HOME/.ripgreprc"
-symlink "$HOME/.dotfiles/.curlrc" "$HOME/.curlrc"
-symlink "$HOME/.dotfiles/.editorconfig" "$HOME/.editorconfig"
-symlink "$HOME/.dotfiles/.wgetrc" "$HOME/.wgetrc"
-symlink "$HOME/.dotfiles/.colordiffrc" "$HOME/.colordiffrc"
-symlink "$HOME/.dotfiles/.tmux" "$HOME/.tmux"
-symlink "$HOME/.dotfiles/.tmux.conf" "$HOME/.tmux.conf"
-symlink "$HOME/.dotfiles/.tmux-mac" "$HOME/.tmux-mac"
-symlink "$HOME/.dotfiles/.tmux-linux" "$HOME/.tmux-linux"
-symlink "$HOME/.dotfiles/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+symlink "$DOTFILES_DIR/.ctags" "$HOME/.ctags"
+symlink "$DOTFILES_DIR/.ackrc" "$HOME/.ackrc"
+symlink "$DOTFILES_DIR/.ripgreprc" "$HOME/.ripgreprc"
+symlink "$DOTFILES_DIR/.curlrc" "$HOME/.curlrc"
+symlink "$DOTFILES_DIR/.editorconfig" "$HOME/.editorconfig"
+symlink "$DOTFILES_DIR/.wgetrc" "$HOME/.wgetrc"
+symlink "$DOTFILES_DIR/.colordiffrc" "$HOME/.colordiffrc"
+symlink "$DOTFILES_DIR/.tmux" "$HOME/.tmux"
+symlink "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
+symlink "$DOTFILES_DIR/.tmux-mac" "$HOME/.tmux-mac"
+symlink "$DOTFILES_DIR/.tmux-linux" "$HOME/.tmux-linux"
+symlink "$DOTFILES_DIR/herdr/config.toml" "$HOME/.config/herdr/config.toml"
 e_success "symlinked other stuff"
 
 # git
-symlink "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
-symlink "$HOME/.dotfiles/.gitconfig.inc" "$HOME/.gitconfig.inc"
+symlink "$DOTFILES_DIR/.gitignore_global" "$HOME/.gitignore_global"
+symlink "$DOTFILES_DIR/.gitconfig.inc" "$HOME/.gitconfig.inc"
 git config --global include.path "$HOME/.gitconfig.inc"
-symlink "$HOME/.dotfiles/.gitattributes_global" "$HOME/.gitattributes_global"
+symlink "$DOTFILES_DIR/.gitattributes_global" "$HOME/.gitattributes_global"
 e_success "configured git"
 e_arrow "reminder: set your git name and email like this: \
 \n\t git config --global user.email \"foo@bar.com\" \
