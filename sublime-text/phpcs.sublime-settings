@@ -18,29 +18,29 @@
     // PHP_CodeSniffer settings
     "phpcs_sniffer_run": true,
     "phpcs_command_on_save": true,
-    "phpcs_executable_path": "/home/abez/.composer/vendor/bin/phpcs",
+    "phpcs_executable_path": "phpcs",
 
 
 
     // PHP-CS-Fixer settings
     "php_cs_fixer_on_save": true,
     "php_cs_fixer_show_quick_panel": false,
-    "php_cs_fixer_executable_path": "/home/abez/.composer/vendor/bin/php-cs-fixer",
+    "php_cs_fixer_executable_path": "php-cs-fixer",
 
 
 
     // phpcbf settings
     "phpcbf_on_save": true,
     "phpcbf_show_quick_panel": false,
-    "phpcbf_executable_path": "/home/abez/.composer/vendor/bin/phpcbf",
+    "phpcbf_executable_path": "phpcbf",
 
     // Are we going to run php -l over the file?
     "phpcs_linter_run": true,
     "phpcs_linter_command_on_save": true,
-    "phpcs_php_path": "/home/abez/.composer/vendor/bin/phpcs",
+    "phpcs_php_path": "phpcs",
 
     // PHP Mess Detector settings
     "phpmd_run": false,
     "phpmd_command_on_save": true,
-    "phpmd_executable_path": "/home/abez/.composer/vendor/bin/phpmd",
+    "phpmd_executable_path": "phpmd",
 }
