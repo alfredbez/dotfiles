@@ -1,3 +1,4 @@
+onboarding = false
 [keys]
 # Keep the tmux prefix and the bindings from ~/.tmux.conf.
 prefix = "ctrl+b"
