@@ -94,6 +94,7 @@ symlink "$HOME/.dotfiles/.tmux" "$HOME/.tmux"
 symlink "$HOME/.dotfiles/.tmux.conf" "$HOME/.tmux.conf"
 symlink "$HOME/.dotfiles/.tmux-mac" "$HOME/.tmux-mac"
 symlink "$HOME/.dotfiles/.tmux-linux" "$HOME/.tmux-linux"
+symlink "$HOME/.dotfiles/rex/init.lua" "${XDG_CONFIG_HOME:-$HOME/.config}/rex/init.lua"
 e_success "symlinked other stuff"
 
 # git
