@@ -135,6 +135,7 @@ symlink "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
 symlink "$DOTFILES_DIR/.tmux-mac" "$HOME/.tmux-mac"
 symlink "$DOTFILES_DIR/.tmux-linux" "$HOME/.tmux-linux"
 symlink "$DOTFILES_DIR/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+symlink "$DOTFILES_DIR/rex/init.lua" "${XDG_CONFIG_HOME:-$HOME/.config}/rex/init.lua"
 e_success "symlinked other stuff"
 
 # git
