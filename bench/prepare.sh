@@ -14,7 +14,7 @@ if [ "$(uname -s)" != Darwin ]; then
     echo "These benchmarks require macOS and Homebrew." >&2
     exit 1
 fi
-for cmd in brew ggrep git zsh python3; do
+for cmd in brew git zsh python3; do
     command -v "$cmd" >/dev/null || { echo "Missing required command: $cmd" >&2; exit 1; }
 done
 export HOMEBREW_CELLAR="${HOMEBREW_CELLAR:-$(brew --cellar)}"
@@ -31,34 +31,20 @@ git -C "$BENCH_HOME/.oh-my-zsh" checkout --quiet FETCH_HEAD
 ln -s "$DOTFILES_DIR/.zshrc" "$BENCH_HOME/.zshrc"
 
 # Like the real local configuration, initialize Homebrew before Oh My Zsh.
-# This supplies HOMEBREW_CELLAR to both the production and historical code.
+# This supplies HOMEBREW_CELLAR to the production alias code.
 # shellcheck disable=SC2016 # The command substitution belongs in the generated file.
 printf 'eval "$(%q shellenv)"\n' "$(command -v brew)" > "$BENCH_HOME/.zshrc.local"
 
-# Create a historical comparison from the original pipeline, preserving the
-# surrounding current alias code so both measurements do equivalent work.
-python3 "$DOTFILES_DIR/bench/make-legacy.py" \
-    "$DOTFILES_DIR/oh-my-zsh-custom/20_aliases.zsh" "$BENCH_HOME/legacy-aliases.zsh"
-
-# Confirm both paths discover the same three or more real PHP versions.
-current="$(DOTFILES_BENCH_HOME="$BENCH_HOME" "$DOTFILES_DIR/bench/php-aliases.sh" current versions)"
-legacy="$(DOTFILES_BENCH_HOME="$BENCH_HOME" "$DOTFILES_DIR/bench/php-aliases.sh" legacy versions)"
-if [ "$current" != "$legacy" ]; then
-    echo "PHP versions differ: current=$current legacy=$legacy" >&2
+# Confirm the current code discovers at least three PHP versions and creates
+# an alias for each one, without invoking those aliases.
+versions="$(DOTFILES_BENCH_HOME="$BENCH_HOME" "$DOTFILES_DIR/bench/php-aliases.sh" versions)"
+count="$(printf '%s\n' "$versions" | awk -F, '{ print NF }')"
+if [ -z "$versions" ] || [ "$count" -lt 3 ]; then
+    echo "Need at least three distinct Homebrew PHP versions; found: $versions" >&2
     exit 1
 fi
-count="$(printf '%s\n' "$current" | awk -F, '{ print NF }')"
-if [ -z "$current" ] || [ "$count" -lt 3 ]; then
-    echo "Need at least three distinct Homebrew PHP versions; found: $current" >&2
-    exit 1
-fi
-printf 'PHP versions for comparison: %s\n' "$current"
-current_aliases="$(DOTFILES_BENCH_HOME="$BENCH_HOME" "$DOTFILES_DIR/bench/php-aliases.sh" current aliases)"
-legacy_aliases="$(DOTFILES_BENCH_HOME="$BENCH_HOME" "$DOTFILES_DIR/bench/php-aliases.sh" legacy aliases)"
-if [ "$current_aliases" != "$legacy_aliases" ]; then
-    echo "Generated PHP aliases differ between current and historical implementations" >&2
-    exit 1
-fi
+printf 'PHP versions discovered: %s\n' "$versions"
+DOTFILES_BENCH_HOME="$BENCH_HOME" "$DOTFILES_DIR/bench/php-aliases.sh" aliases >/dev/null
 
 # Warm the real Zsh completion cache before timing.
 DOTFILES_BENCH_HOME="$BENCH_HOME" "$DOTFILES_DIR/bench/zsh-startup.sh"

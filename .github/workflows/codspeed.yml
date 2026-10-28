@@ -24,12 +24,12 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install three Homebrew PHP versions and GNU grep
+      - name: Install three Homebrew PHP versions
         env:
           HOMEBREW_NO_AUTO_UPDATE: 1
           HOMEBREW_NO_INSTALL_CLEANUP: 1
         run: |
-          brew install php php@8.4 php@8.3 grep
+          brew install php php@8.4 php@8.3
           brew list --versions php php@8.4 php@8.3
           echo "HOMEBREW_CELLAR=$(brew --cellar)" >> "$GITHUB_ENV"
 

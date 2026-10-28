@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
-# Source identical alias files, differing only in PHP version discovery.
+# Measure the current alias setup, including PHP version discovery.
 set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 BENCH_HOME="${DOTFILES_BENCH_HOME:-${TMPDIR:-/tmp}/dotfiles-bench-home}"
 case "${1:-}" in
-    current) aliases="$DOTFILES_DIR/oh-my-zsh-custom/20_aliases.zsh" ;;
-    legacy) aliases="$BENCH_HOME/legacy-aliases.zsh" ;;
-    *) echo 'Usage: php-aliases.sh current|legacy [versions|aliases]' >&2; exit 1 ;;
+    ''|versions|aliases) ;;
+    *) echo 'Usage: php-aliases.sh [versions|aliases]' >&2; exit 1 ;;
 esac
-export DOTFILES_BENCH_ALIASES="$aliases"
-export DOTFILES_BENCH_OUTPUT="${2:-}"
+export DOTFILES_BENCH_ALIASES="$DOTFILES_DIR/oh-my-zsh-custom/20_aliases.zsh"
+export DOTFILES_BENCH_OUTPUT="${1:-}"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export HOMEBREW_CELLAR="${HOMEBREW_CELLAR:-$(brew --cellar)}"

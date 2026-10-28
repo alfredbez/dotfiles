@@ -26,18 +26,17 @@ Python executable needs a shim before then.
 ## Benchmarks
 
 [CodSpeed](https://codspeed.io) tracks shell startup and PHP alias discovery
-on a macOS runner. CI installs three Homebrew PHP versions and GNU grep. The
-current implementation and the original `brew ls --versions` pipeline run
-against the same installation; preparation verifies that both discover the same
-versions and produce identical aliases. The full-shell benchmark measures
+on a macOS runner on every push to `master` and on pull requests. CI installs
+three Homebrew PHP versions and preparation verifies that they are discovered
+and their aliases are created. The full-shell benchmark measures
 `zsh -l -i -c exit`, not an actual terminal's first prompt. Hosted-runner
 walltime is noisy; compare trends rather than treating small differences as
 regressions. The benchmarks use the pytest-codspeed integration because
 CodSpeed's command exec-harness does not ship a macOS binary. Measured timings
 include Python subprocess-launch overhead. Profiling is disabled.
 
-To run locally on macOS, install at least three PHP versions, GNU grep and the
-CodSpeed CLI and `pytest-codspeed==5.0.3`, then use a new, non-existing
+To run locally on macOS, install at least three PHP versions, the CodSpeed CLI
+and `pytest-codspeed==5.0.3`, then use a new, non-existing
 temporary home:
 
 ```sh
