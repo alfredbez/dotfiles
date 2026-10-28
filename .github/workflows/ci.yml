@@ -20,7 +20,7 @@ jobs:
 
       - name: Check shell scripts
         run: |
-          shellcheck install.sh .githooks/pre-commit
+          shellcheck install.sh .githooks/pre-commit bench/*.sh
           bash -n install.sh
           zsh -n .zshrc oh-my-zsh-custom/10_functions.zsh oh-my-zsh-custom/20_aliases.zsh
 

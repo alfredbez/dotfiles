@@ -1,0 +1,19 @@
+$schema: https://raw.githubusercontent.com/CodSpeedHQ/codspeed/refs/heads/main/schemas/codspeed.schema.json
+
+# Run bench/prepare.sh once before `codspeed run` to create the isolated HOME.
+options:
+  warmup-time: "1s"
+  max-time: "5s"
+
+benchmarks:
+  - name: "zsh interactive startup (full .zshrc)"
+    id: zsh-startup
+    exec: ./bench/zsh-startup.sh
+
+  - name: "zsh custom functions and aliases"
+    id: zsh-custom
+    exec: ./bench/zsh-custom.sh
+
+  - name: "install.sh re-run (idempotent)"
+    id: install-rerun
+    exec: ./bench/install-rerun.sh

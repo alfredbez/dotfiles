@@ -1,0 +1,38 @@
+name: CodSpeed
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  # Allows CodSpeed to trigger backtest performance analysis
+  # in order to generate initial data.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # for OpenID Connect authentication with CodSpeed
+
+jobs:
+  benchmarks:
+    name: Run benchmarks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: recursive
+
+      - name: Install zsh
+        run: sudo apt-get update && sudo apt-get install -y zsh
+
+      - name: Prepare benchmark HOME
+        env:
+          DOTFILES_BENCH_HOME: ${{ runner.temp }}/bench-home
+        run: ./bench/prepare.sh
+
+      - name: Run benchmarks
+        uses: CodSpeedHQ/action@78102a468f96d8e0ccb92d0ec49425753fc42062 # v5.6.0
+        env:
+          DOTFILES_BENCH_HOME: ${{ runner.temp }}/bench-home
+        with:
+          mode: walltime
