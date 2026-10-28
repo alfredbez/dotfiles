@@ -5,9 +5,9 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
 SAVEHIST=100000
 HISTSIZE=1000
-ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh-custom
+ZSH_CUSTOM="${${(%):-%N}:A:h}/oh-my-zsh-custom"
 ZSH_THEME="spaceship"
-BAT_THEME="Solarized (light)"
+BAT_THEME="Catppuccin Mocha"
 plugins=(git composer cp common-aliases sublime sudo z debian zsh-syntax-highlighting zsh-autosuggestions)
 
 # This speeds up pasting w/ autosuggest
@@ -28,8 +28,7 @@ export PATH=~/bin:$PATH
 export PATH=~/.config/composer/vendor/bin:$PATH
 export PATH=~/.composer/vendor/bin:$PATH
 export PATH="/snap/bin:$PATH"
-export PATH="/home/abez/.local/bin:$PATH"
-export PATH="/Users/bez/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 if [ -f ~/.zprofile ]; then
     source ~/.zprofile
@@ -41,17 +40,14 @@ export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
-if [ -d ~/.nvm ]; then
-    source ~/.nvm/nvm.sh
-    nvm use stable > /dev/null 2>&1
-fi
+eval "$(fnm env --use-on-cd)"
 
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
 
 RPROMPT='!%!'
-[ -d "/home/abez/.zfunctions" ] && fpath=($fpath "/home/abez/.zfunctions")
+[ -d "$HOME/.zfunctions" ] && fpath=($fpath "$HOME/.zfunctions")
 eval "$(mcfly init zsh)"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -62,8 +58,3 @@ export FZF_DEFAULT_COMMAND='fd -L -I -t f -t l'
 # Go configuration
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
-
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -3,3 +3,12 @@
 .tmux/resurrect
 .tmux/plugins/tmux*
 .vim/plugged
+
+# Machine-local configuration and credentials
+.claude/settings.local.json
+.env
+.env.*
+.mise.local.toml
+.ssh/
+.zprofile
+.zshrc.local
