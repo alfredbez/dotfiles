@@ -78,4 +78,5 @@
 	"update_check": true,
 	"word_wrap": true,
 	"index_files": false,
+	"theme": "Default.sublime-theme",
 }

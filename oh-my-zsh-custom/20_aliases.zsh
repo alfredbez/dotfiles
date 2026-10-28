@@ -46,7 +46,21 @@ if is_macos; then
     #
     # source: https://localheinz.com/blog/2020/05/05/switching-between-php-versions-when-using-homebrew/
 
-    installedPhpVersions=($(brew ls --versions | ggrep -E 'php(@.*)?\s' | ggrep -oP '(?<=\s)\d\.\d' | uniq | sort))
+    # Read installed kegs directly instead of launching Homebrew and several
+    # filters on every shell start. brew shellenv normally sets HOMEBREW_CELLAR.
+    _phpCellar=${HOMEBREW_CELLAR:-$(brew --cellar 2>/dev/null)}
+    installedPhpVersions=()
+    if [[ -n $_phpCellar && -d $_phpCellar ]]; then
+        for _phpKeg in "$_phpCellar"/php(/N) "$_phpCellar"/php@*(/N); do
+            for _phpInstalled in "$_phpKeg"/*(/N); do
+                if [[ ${_phpInstalled:t} =~ '^([0-9]+)\.([0-9]+)\.' ]]; then
+                    installedPhpVersions+=("${match[1]}.${match[2]}")
+                fi
+            done
+        done
+        installedPhpVersions=(${(ou)installedPhpVersions})
+    fi
+    unset _phpCellar _phpKeg _phpInstalled
 
     # create alias for every version of PHP installed with HomeBrew
     for phpVersion in ${installedPhpVersions[*]}; do

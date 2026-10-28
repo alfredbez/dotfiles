@@ -7,7 +7,7 @@ SAVEHIST=100000
 HISTSIZE=1000
 ZSH_CUSTOM="${${(%):-%N}:A:h}/oh-my-zsh-custom"
 ZSH_THEME="spaceship"
-BAT_THEME="Catppuccin Mocha"
+BAT_THEME="Solarized (light)"
 plugins=(git composer cp common-aliases sublime sudo z debian zsh-syntax-highlighting zsh-autosuggestions)
 
 # This speeds up pasting w/ autosuggest
@@ -30,8 +30,8 @@ export PATH=~/.composer/vendor/bin:$PATH
 export PATH="/snap/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-if [ -f ~/.zprofile ]; then
-    source ~/.zprofile
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -40,15 +40,11 @@ export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
-eval "$(fnm env --use-on-cd)"
-
-if [ -f ~/.zshrc.local ]; then
-    source ~/.zshrc.local
-fi
-
 RPROMPT='!%!'
 [ -d "$HOME/.zfunctions" ] && fpath=($fpath "$HOME/.zfunctions")
-eval "$(mcfly init zsh)"
+if command -v mcfly >/dev/null; then
+    eval "$(mcfly init zsh)"
+fi
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PHP_IDE_CONFIG="serverName=localhost"
@@ -58,3 +54,36 @@ export FZF_DEFAULT_COMMAND='fd -L -I -t f -t l'
 # Go configuration
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+
+# Make Python shims available immediately, but defer the relatively expensive
+# pyenv shell integration and rehash until the first explicit pyenv command.
+if (( $+commands[pyenv] )); then
+    export PATH="$PYENV_ROOT/shims:$PATH"
+    export PYENV_SHELL=zsh
+    # Let the first completion request initialize pyenv's own completion too.
+    _pyenv_lazy_completion() {
+        pyenv --version >/dev/null || return
+        _pyenv "$@"
+    }
+    compctl -K _pyenv_lazy_completion pyenv
+    pyenv() {
+        unfunction pyenv
+        eval "$(command pyenv init - zsh)"
+        pyenv "$@"
+    }
+fi
+
+if command -v fnm >/dev/null; then
+    eval "$(fnm env --use-on-cd)"
+fi
+
+# Google Cloud SDK and OpenClaw are optional and may not be installed.
+[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ] && source "$HOME/google-cloud-sdk/path.zsh.inc"
+[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ] && source "$HOME/google-cloud-sdk/completion.zsh.inc"
+[ -f "$HOME/.openclaw/completions/openclaw.zsh" ] && source "$HOME/.openclaw/completions/openclaw.zsh"
+
+# Keep locally installed CLI tools ahead of system and SDK binaries.
+export PATH="$HOME/.local/bin:$PATH"
