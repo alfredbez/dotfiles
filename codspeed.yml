@@ -1,23 +1,6 @@
 $schema: https://raw.githubusercontent.com/CodSpeedHQ/codspeed/refs/heads/main/schemas/codspeed.schema.json
 
-# Run bench/prepare.sh once before `codspeed run` to create the isolated HOME.
-options:
-  warmup-time: "1s"
-  max-time: "5s"
-
+# The pytest integration is its own harness; the exec-harness is Linux-only.
 benchmarks:
-  - name: "zsh interactive startup (full .zshrc)"
-    id: zsh-startup
-    exec: ./bench/zsh-startup.sh
-
-  - name: "zsh custom functions and aliases"
-    id: zsh-custom
-    exec: ./bench/zsh-custom.sh
-
-  - name: "PHP aliases (current Cellar scan)"
-    id: php-aliases-current
-    exec: ./bench/php-aliases.sh current
-
-  - name: "PHP aliases (historical Homebrew pipeline)"
-    id: php-aliases-legacy
-    exec: ./bench/php-aliases.sh legacy
+  - id: shell-startup
+    entrypoint: python3 -B -m pytest -p no:cacheprovider bench/test_benchmarks.py --codspeed

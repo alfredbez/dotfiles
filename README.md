@@ -32,11 +32,13 @@ against the same installation; preparation verifies that both discover the same
 versions and produce identical aliases. The full-shell benchmark measures
 `zsh -l -i -c exit`, not an actual terminal's first prompt. Hosted-runner
 walltime is noisy; compare trends rather than treating small differences as
-regressions. Profiling is disabled because the benchmark uses macOS system
-shells, which System Integrity Protection prevents CodSpeed from profiling.
+regressions. The benchmarks use the pytest-codspeed integration because
+CodSpeed's command exec-harness does not ship a macOS binary. Measured timings
+include Python subprocess-launch overhead. Profiling is disabled.
 
 To run locally on macOS, install at least three PHP versions, GNU grep and the
-CodSpeed CLI, then use a new, non-existing temporary home:
+CodSpeed CLI and `pytest-codspeed==5.0.3`, then use a new, non-existing
+temporary home:
 
 ```sh
 export DOTFILES_BENCH_HOME="${TMPDIR:-/tmp}/dotfiles-bench-$$"

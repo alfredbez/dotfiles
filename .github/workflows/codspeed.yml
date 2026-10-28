@@ -33,6 +33,13 @@ jobs:
           brew list --versions php php@8.4 php@8.3
           echo "HOMEBREW_CELLAR=$(brew --cellar)" >> "$GITHUB_ENV"
 
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+
+      - name: Install pytest benchmark integration
+        run: python3 -m pip install 'pytest-codspeed==5.0.3'
+
       - name: Prepare benchmark HOME
         env:
           DOTFILES_BENCH_HOME: ${{ runner.temp }}/bench-home
