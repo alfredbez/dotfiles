@@ -16,14 +16,22 @@ permissions:
 jobs:
   benchmarks:
     name: Run benchmarks
-    runs-on: ubuntu-latest
+    # CodSpeed 5.6.0 publishes a macOS arm64 runner, not an Intel build.
+    runs-on: macos-15
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           submodules: recursive
 
-      - name: Install zsh
-        run: sudo apt-get update && sudo apt-get install -y zsh
+      - name: Install three Homebrew PHP versions and GNU grep
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: 1
+          HOMEBREW_NO_INSTALL_CLEANUP: 1
+        run: |
+          brew install php php@8.4 php@8.3 grep
+          brew list --versions php php@8.4 php@8.3
+          echo "HOMEBREW_CELLAR=$(brew --cellar)" >> "$GITHUB_ENV"
 
       - name: Prepare benchmark HOME
         env:
@@ -34,5 +42,9 @@ jobs:
         uses: CodSpeedHQ/action@78102a468f96d8e0ccb92d0ec49425753fc42062 # v5.6.0
         env:
           DOTFILES_BENCH_HOME: ${{ runner.temp }}/bench-home
+          HOMEBREW_NO_AUTO_UPDATE: 1
+          HOMEBREW_NO_INSTALL_CLEANUP: 1
+          # The benchmark uses SIP-protected system shells, which cannot be profiled.
+          CODSPEED_PROFILER_ENABLED: "false"
         with:
           mode: walltime

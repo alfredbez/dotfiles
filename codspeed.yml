@@ -14,6 +14,10 @@ benchmarks:
     id: zsh-custom
     exec: ./bench/zsh-custom.sh
 
-  - name: "install.sh re-run (idempotent)"
-    id: install-rerun
-    exec: ./bench/install-rerun.sh
+  - name: "PHP aliases (current Cellar scan)"
+    id: php-aliases-current
+    exec: ./bench/php-aliases.sh current
+
+  - name: "PHP aliases (historical Homebrew pipeline)"
+    id: php-aliases-legacy
+    exec: ./bench/php-aliases.sh legacy

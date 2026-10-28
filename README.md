@@ -25,11 +25,30 @@ Python executable needs a shim before then.
 
 ## Benchmarks
 
-Shell startup time and the installer are tracked with
-[CodSpeed](https://codspeed.io) using the benchmarks defined in `codspeed.yml`.
-To run them locally:
+[CodSpeed](https://codspeed.io) tracks shell startup and PHP alias discovery
+on a macOS runner. CI installs three Homebrew PHP versions and GNU grep. The
+current implementation and the original `brew ls --versions` pipeline run
+against the same installation; preparation verifies that both discover the same
+versions and produce identical aliases. The full-shell benchmark measures
+`zsh -l -i -c exit`, not an actual terminal's first prompt. Hosted-runner
+walltime is noisy; compare trends rather than treating small differences as
+regressions. Profiling is disabled because the benchmark uses macOS system
+shells, which System Integrity Protection prevents CodSpeed from profiling.
+
+To run locally on macOS, install at least three PHP versions, GNU grep and the
+CodSpeed CLI, then use a new, non-existing temporary home:
 
 ```sh
-./bench/prepare.sh            # creates an isolated HOME in $TMPDIR
+export DOTFILES_BENCH_HOME="${TMPDIR:-/tmp}/dotfiles-bench-$$"
+export HOMEBREW_CELLAR="$(brew --cellar)"
+export CODSPEED_PROFILER_ENABLED=false
+./bench/prepare.sh
 codspeed run --mode walltime
 ```
+
+Preparation refuses to overwrite an existing home. The fixture contains a
+pinned Oh My Zsh and a minimal Homebrew `.zshrc.local`; it does not replicate
+machine-specific tool setups, so it will not reproduce every cost of a real
+desktop shell. Tools already available on the runner may still be detected. The
+Homebrew formulas are currently `php`, `php@8.4` and `php@8.3`; update them as
+supported versions change.
