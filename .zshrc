@@ -23,7 +23,9 @@ pastefinish() {
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+# Keep the PATH from .zshenv/.zprofile (e.g. Homebrew), only add to it.
+typeset -U path PATH
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export PATH=~/bin:$PATH
 export PATH=~/.config/composer/vendor/bin:$PATH
 export PATH=~/.composer/vendor/bin:$PATH
