@@ -1,12 +1,15 @@
 # Rex
 
-`init.lua` is linked to `${XDG_CONFIG_HOME:-$HOME/.config}/rex/init.lua` by
-`install.sh`. Reload it on the Rex server with `rex config reload`.
+`init.lua` and the `copy-mode*.lua` modules are linked to
+`${XDG_CONFIG_HOME:-$HOME/.config}/rex/` by `install.sh`. Reload the config on
+the Rex server with `rex config reload`.
 
 * `Ctrl+B`, then `v` or `|`: split to the right (`|` is Option+7 on a German Mac keyboard).
 * `Ctrl+B`, then `-`: split below.
 * `Ctrl+B`, then an arrow: focus a neighboring pane.
 * `Ctrl+B`, then `z`: zoom or unzoom a pane.
+* `Ctrl+B`, then `y`: open Vim-style copy mode ([rex-copy-mode](https://github.com/CJNE/rex-copy-mode), requires `nvim`; select with `v`/`V`/`Ctrl+V`, `Enter` copies and returns, `y` copies without closing, `:q` cancels).
+* `Ctrl+B`, then `P`: paste clipboard into the focused pane.
 * `Ctrl+B`, then `Ctrl+B`: send Ctrl+B to the terminal, e.g. for nested tmux.
 
 The `|` binding targets the German macOS keyboard layout. Other keyboard

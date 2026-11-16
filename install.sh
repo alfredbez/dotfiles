@@ -135,7 +135,10 @@ symlink "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
 symlink "$DOTFILES_DIR/.tmux-mac" "$HOME/.tmux-mac"
 symlink "$DOTFILES_DIR/.tmux-linux" "$HOME/.tmux-linux"
 symlink "$DOTFILES_DIR/herdr/config.toml" "$HOME/.config/herdr/config.toml"
-symlink "$DOTFILES_DIR/rex/init.lua" "${XDG_CONFIG_HOME:-$HOME/.config}/rex/init.lua"
+REX_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/rex"
+for rex_file in init.lua copy-mode.lua copy-mode-common.lua copy-mode-view.lua; do
+    symlink "$DOTFILES_DIR/rex/$rex_file" "$REX_CONFIG_DIR/$rex_file"
+done
 e_success "symlinked other stuff"
 
 # git
